@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소방관 위험 의사결정의 심리학</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+
+/* ─── page structure ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #FAFAF8;
+  font-family: 'Noto Serif KR', serif;
+  color: #1A1A1A;
+}
+
+.page-section {
+  break-before: page;
+}
+.page-section:first-child {
+  break-before: auto;
+}
+
+/* 표지·저자·판권 — 전체 페이지 레이아웃 */
+.cover-section,
+.author-section,
+.colophon-section {
+  min-height: 100vh;
+}
+
+/* ─── content pages ─── */
+.content-section {
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.content-inner {
+  max-width: 620px;
+  width: 100%;
+}
+
+/* ─── chapter typography ─── */
+.content-inner h1 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #1A1A1A;
+  word-break: keep-all;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #8B1A1A;
+}
+
+.content-inner h2 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: #1A1A1A;
+  word-break: keep-all;
+  margin-top: 52px;
+  margin-bottom: 20px;
+}
+
+.content-inner h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A1A1A;
+  word-break: keep-all;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.content-inner p {
+  font-size: 15.5px;
+  font-weight: 300;
+  line-height: 2.1;
+  color: #1A1A1A;
+  word-break: keep-all;
+  margin-bottom: 1.4em;
+}
+
+.content-inner p.indent {
+  text-indent: 1.2em;
+}
+
+.content-inner hr.section-rule {
+  border: none;
+  border-top: 1px solid #C8B8A2;
+  margin: 36px 0;
+}
+
+.content-inner ul {
+  margin: 0.6em 0 1.6em 0;
+  padding-left: 1.4em;
+}
+
+.content-inner ul li {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 2.0;
+  color: #1A1A1A;
+  word-break: keep-all;
+  margin-bottom: 0.5em;
+}
+
+.content-inner strong { font-weight: 600; }
+
+.content-inner em {
+  font-style: italic;
+  color: #444;
+}
+
+/* ─── footnotes / 미주 ─── */
+.content-inner h2.footnotes-header {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: #AAA;
+  text-transform: uppercase;
+  border-top: 1px solid #E8E4DE;
+  padding-top: 28px;
+  margin-top: 60px;
+  margin-bottom: 16px;
+}
+
+.content-inner h2.footnotes-header ~ p {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12.5px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #777;
+  margin-bottom: 0.8em;
+  text-indent: 0;
+}
+
+/* ─── TOC page ─── */
+.toc-inner h1 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: none;
+  margin-bottom: 6px;
+  padding-bottom: 0;
+}
+
+.toc-inner > p:first-of-type,
+.toc-inner p.toc-label {
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: #8B1A1A;
+  margin-bottom: 48px;
+  text-indent: 0;
+}
+
+.toc-inner h2 {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #8B1A1A;
+  margin-top: 32px;
+  margin-bottom: 6px;
+}
+
+.toc-inner p {
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #555;
+  margin-bottom: 0.25em;
+  text-indent: 0;
+}
+
+.toc-inner em {
+  font-style: normal;
+  color: #8B1A1A;
+  font-weight: 400;
+}
+
+.toc-inner hr.section-rule {
+  margin: 20px 0;
+  border-top: 1px solid #E8E4DE;
+}
+
+/* ─── References page ─── */
+.refs-inner h1 {
+  border-bottom-color: #C8B8A2;
+  border-bottom-width: 1px;
+}
+
+.refs-inner p {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #333;
+  margin-bottom: 1.1em;
+  text-indent: -1.5em;
+  padding-left: 1.5em;
+}
+
+  </style>
+  <!-- Scoped styles for special pages -->
+  <style>
+.cover-section *, .cover-section *::before, .cover-section *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+}
+.cover-section, .cover-section {
+  width: 100%;
+      height: 100%;
+}
+.cover-section {
+  background-color: #FAFAF8;
+      color: #1A1A1A;
+      font-family: 'Noto Serif KR', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px 40px;
+}
+.cover-section .cover-wrap {
+  max-width: 560px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+}
+.cover-section /* 상단 장식 */
+    .top-ornament {
+  display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 72px;
+}
+.cover-section .top-ornament .line {
+  width: 60px;
+      height: 1px;
+      background-color: #C8B8A2;
+}
+.cover-section .top-ornament .dot {
+  width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #8B1A1A;
+}
+.cover-section /* 분류 레이블 */
+    .label {
+  font-family: 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: #8B1A1A;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+}
+.cover-section /* 메인 제목 */
+    .title-block {
+  text-align: center;
+      margin-bottom: 48px;
+}
+.cover-section .title-main {
+  font-size: 36px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      color: #1A1A1A;
+      word-break: keep-all;
+}
+.cover-section .title-main .highlight {
+  color: #8B1A1A;
+}
+.cover-section /* 구분선 */
+    .divider {
+  width: 40px;
+      height: 3px;
+      background-color: #8B1A1A;
+      margin: 40px auto;
+}
+.cover-section /* 설명 문구 */
+    .tagline {
+  font-size: 14px;
+      font-weight: 300;
+      line-height: 2;
+      color: #555;
+      text-align: center;
+      letter-spacing: 0.03em;
+      word-break: keep-all;
+      max-width: 380px;
+}
+.cover-section /* 저자 영역 */
+    .author-block {
+  margin-top: 72px;
+      text-align: center;
+      border-top: 1px solid #C8B8A2;
+      padding-top: 32px;
+      width: 100%;
+}
+.cover-section .author-role {
+  font-family: 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: #999;
+      margin-bottom: 10px;
+}
+.cover-section .author-name {
+  font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: #1A1A1A;
+}
+.cover-section /* 하단 장식 */
+    .bottom-ornament {
+  margin-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+}
+.cover-section .bottom-ornament .line {
+  width: 60px;
+      height: 1px;
+      background-color: #C8B8A2;
+}
+.cover-section .bottom-ornament .dot {
+  width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #C8B8A2;
+}
+  </style>
+  <style>
+.author-section *, .author-section *::before, .author-section *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+}
+.author-section {
+  background-color: #FAFAF8;
+      color: #1A1A1A;
+      font-family: 'Noto Serif KR', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 80px 40px;
+}
+.author-section .page-wrap {
+  max-width: 560px;
+      width: 100%;
+}
+.author-section /* 페이지 레이블 */
+    .page-label {
+  font-family: 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: #8B1A1A;
+      margin-bottom: 40px;
+}
+.author-section /* 저자명 */
+    .author-name {
+  font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #1A1A1A;
+      margin-bottom: 8px;
+}
+.author-section /* 소속 */
+    .author-affiliation {
+  font-family: 'Noto Sans KR', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #8B1A1A;
+      letter-spacing: 0.05em;
+      margin-bottom: 40px;
+}
+.author-section /* 구분선 */
+    .divider {
+  width: 32px;
+      height: 2px;
+      background-color: #C8B8A2;
+      margin-bottom: 40px;
+}
+.author-section /* 소개 본문 */
+    .bio {
+  font-size: 15px;
+      font-weight: 300;
+      line-height: 2.1;
+      color: #333;
+      word-break: keep-all;
+}
+.author-section .bio p + p {
+  margin-top: 1.6em;
+}
+  </style>
+  <style>
+.colophon-section *, .colophon-section *::before, .colophon-section *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+}
+.colophon-section {
+  background-color: #FAFAF8;
+      color: #1A1A1A;
+      font-family: 'Noto Serif KR', serif;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 80px 40px;
+}
+.colophon-section .page-wrap {
+  max-width: 560px;
+      width: 100%;
+}
+.colophon-section /* 책 제목 */
+    .book-title {
+  font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #1A1A1A;
+      margin-bottom: 32px;
+      line-height: 1.6;
+      word-break: keep-all;
+}
+.colophon-section /* 구분선 */
+    .divider {
+  width: 100%;
+      height: 1px;
+      background-color: #C8B8A2;
+      margin-bottom: 28px;
+}
+.colophon-section /* 판권 표 */
+    .colophon-table {
+  width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+}
+.colophon-section .colophon-table tr + tr td {
+  padding-top: 10px;
+}
+.colophon-section .colophon-table td {
+  font-family: 'Noto Sans KR', sans-serif;
+      font-size: 12.5px;
+      font-weight: 300;
+      line-height: 1.7;
+      vertical-align: top;
+}
+.colophon-section .colophon-table td.key {
+  color: #888;
+      width: 90px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+}
+.colophon-section .colophon-table td.val {
+  color: #333;
+}
+.colophon-section /* 저작권 */
+    .copyright {
+  font-family: 'Noto Sans KR', sans-serif;
+      font-size: 11.5px;
+      font-weight: 300;
+      color: #AAA;
+      line-height: 1.9;
+      border-top: 1px solid #E8E4DE;
+      padding-top: 24px;
+      word-break: keep-all;
+}
+.colophon-section .copyright strong {
+  color: #8B1A1A;
+      font-weight: 400;
+}
+  </style>
+</head>
+<body>
+
+  <section class="page-section cover-section">
+<div class="cover-wrap">
+
+    <div class="top-ornament">
+      <div class="line"></div>
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+
+    <div class="label">편저</div>
+
+    <div class="title-block">
+      <h1 class="title-main">
+        소방관<br>
+        <span class="highlight">위험 의사결정</span>의<br>
+        심리학
+      </h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="tagline">
+      왜 경험 많은 소방관도<br>
+      치명적인 선택을 하는가
+    </p>
+
+    <div class="author-block">
+      <div class="author-role">편저자</div>
+      <div class="author-name">조 재 용</div>
+    </div>
+
+    <div class="bottom-ornament">
+      <div class="line"></div>
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+
+  </div>
+  </section>
+  <section class="page-section author-section">
+<div class="page-wrap">
+
+    <div class="page-label">저자 소개</div>
+
+    <h2 class="author-name">조재용</h2>
+    <div class="author-affiliation">소방청 예방분석제도과 119빅데이터팀장</div>
+
+    <div class="divider"></div>
+
+    <div class="bio">
+      <p>
+        소방청 예방분석제도과 119빅데이터팀장으로 재직 중이다.
+        화재대응조사과에서 근무하는 동안, 소방대원들의 순직 사고를 마주할 때마다
+        늘 같은 의문이 머릿속을 떠나지 않았다.
+        왜 경험 많고 헌신적인 사람들이 치명적인 선택을 하는가.
+        데이터는 무엇이 잘못되었는지를 보여주지만,
+        왜 잘못되었는지를 설명하는 것은 심리학의 몫이라는 생각이
+        이 책의 출발점이 되었다.
+      </p>
+      <p>
+        소방관의 위험 의사결정이 무능이나 부주의의 문제가 아니라,
+        인간의 인지 구조와 조직 환경이 맞물려 만들어내는 결과라는 것을
+        연구 문헌을 통해 확인하고, 그것을 현장의 언어로 옮기는 작업이
+        이 편저의 핵심이다.
+      </p>
+      <p>
+        국내 소방관을 대상으로 한 위험 의사결정 연구가
+        더 넓게, 더 깊게 이어지기를 바란다.
+      </p>
+    </div>
+
+  </div>
+  </section>
+  <section class="page-section content-section toc-section">
+    <div class="content-inner toc-inner">
+<h1>소방관 위험 의사결정의 심리학</h1>
+<p><strong>목차</strong></p>
+<hr class="section-rule">
+<h2>서문 — 편저자의 말</h2>
+<p>왜 경험 많고 헌신적인 소방관이 치명적인 선택을 하는가 이 책이 다루는 질문과, 심리학이 현장에 답할 수 있는 범위에 대하여</p>
+<hr class="section-rule">
+<h2>1장. 화재 현장에서 결정은 어떻게 내려지는가</h2>
+<p><em>분석하지 않는다 — 읽는다</em></p>
+<p>현장 지휘관은 대안을 비교하지 않는다. 상황을 읽고 첫 번째 행동 방침을 채택한다. 패턴 인식 결정(RPD) 모델이 설명하는 경험자의 결정 방식, 그리고 VR 실험이 드러낸 그 모델의 한계</p>
+<hr class="section-rule">
+<h2>2장. 경험은 판단을 어떻게 바꾸는가</h2>
+<p><em>더 오래 뛰었다고 더 잘 결정하는가</em></p>
+<p>연령, 지휘관 경험, 계급이 위험감수 태도에 미치는 효과 그러나 경험이 쌓일수록 오히려 위험에 끌리는 사람이 있다. Type T 성격과 FDTDS가 만드는 역설, 그리고 1장의 긴장을 다시 읽는 방법</p>
+<hr class="section-rule">
+<h2>3장. 우리가 틀리는 방식 — 인지편향</h2>
+<p><em>나쁜 판단에는 이유가 있다</em></p>
+<p>소방관은 두 가지 사고 시스템 사이에서 결정을 내린다. 빠르고 자동적인 시스템이 현장을 지배할 때, 다섯 가지 편향이 작동하기 시작한다. 과신, 통제 환상, 낙관주의, 몰입 상승, 소수의 법칙 — 그리고 각자가 가진 고유한 '안정 편향'</p>
+<hr class="section-rule">
+<h2>4장. 목표 갈등 — 살고 싶지만 구해야 한다</h2>
+<p><em>두 가지를 동시에 원할 때 무슨 일이 일어나는가</em></p>
+<p>자기보호와 임무 수행이 충돌할 때, 소방관은 어떤 결정을 내리는가 PPE를 벗는 행동 뒤에 숨은 세 가지 압력 — 정체성, 목표 유혹, 상황 회피 그리고 디브리핑이 이 갈등을 어떻게 완화할 수 있는가</p>
+<hr class="section-rule">
+<h2>5장. 감정은 결정의 적인가</h2>
+<p><em>공포를 느끼는 소방관이 더 잘 결정한다</em></p>
+<p>감정은 판단을 흐리지 않는다 — 감정은 정보다. 공포, 무력감, 슬픔이 현장에서 하는 역할, 각성이 너무 낮거나 너무 높을 때 성과가 무너지는 이유, 그리고 감정을 억누르는 것이 왜 더 위험한가</p>
+<hr class="section-rule">
+<h2>6장. 죽음을 앞에 두고도 뛰어드는 이유</h2>
+<p><em>죽음을 상기시켜도 행동은 바뀌지 않는다</em></p>
+<p>죽음 현저성(MS) 실험이 보여준 불편한 결과 — 안전 태도는 개선됐지만 실제 행동은 달라지지 않았다. 베테랑과 신입은 왜 다르게 반응하는가 공포관리이론(TMT)이 설명하는 '죽음을 아는 것'과 '죽음을 받아들이는 것'의 간극</p>
+<hr class="section-rule">
+<h2>7장. 영웅주의라는 함정 — 조직문화와 판단 왜곡</h2>
+<p><em>문화가 개인의 결정보다 강하다</em></p>
+<p>영웅주의 문화는 소방관에게 정체성을 주는 동시에 판단을 왜곡한다. 공격적 전술을 정당화하는 세 가지 믿음, 신뢰 없이는 복종도 없다는 지휘 현실, 그리고 안전 기후를 측정하고 바꾸기 위한 접근법</p>
+<hr class="section-rule">
+<h2>8장. 위험을 즐기는 사람들 — 성격과 위험감수</h2>
+<p><em>소방관을 위험으로 이끄는 것은 용기인가, 성격인가</em></p>
+<p>Type T, 다크 트라이어드, Big Five — 세 가지 성격 연구가 교차하는 지점 마키아벨리즘과 사이코패시는 위험감수를 높이고, 이타심과 용기가 그것을 매개한다. 그러나 '위험한 성격'을 걸러낸다는 발상이 왜 역설을 낳는가</p>
+<hr class="section-rule">
+<h2>9장. 더 나은 결정을 위하여 — 훈련과 개입</h2>
+<p><em>알면 달라지는가 — 알게 만드는 훈련이 있는가</em></p>
+<p>소방관은 전술적 운동선수다. 심리 기술 훈련(PST)이 집중력, 각성 조절, 상황인식에 미치는 효과 디브리핑이 팀 전체의 공유 정신 모델을 어떻게 재건하는가 스트레스 마인드셋 훈련(MST) — 스트레스를 적이 아닌 자원으로 바꾸는 세 가지 기법</p>
+<hr class="section-rule">
+<h2>결론</h2>
+<p><em>9개 챕터 정리</em></p>
+<p>잘못된 결정을 내린 소방관은 나쁜 사람이 아니었다. 경험은 필요하지만 충분하지 않다. 지식만으로는 행동이 바뀌지 않는다. 세 가지 통찰이 한국 소방 현장에 던지는 질문들</p>
+<hr class="section-rule">
+<h2>참고문헌</h2>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>서문</h1>
+<p class="indent">소방관이 잘못된 결정을 내리는 것은 드문 일이 아니다. 들어가서는 안 될 건물에 들어가고, 철수해야 할 순간에 버틴다. 그런데 사고 기록을 살펴보면 이상한 점이 있다. 그 결정을 내린 사람들이 대부분 경험 많고, 동료의 신뢰를 받던 소방관이라는 것이다. 무능해서가 아니었다. 겁이 없어서도 아니었다. 그렇다면 무엇이 그들을 위험한 선택으로 이끌었는가.</p>
+<p>이 책은 그 질문에서 출발한다. 소방관의 위험 의사결정을 다룬 해외 연구 16편을 선별하여, 현장에서 실질적으로 읽힐 수 있는 형태로 재구성한 편저다. 학술 논문은 이미 충분히 존재한다. 문제는 접근성이다. 현직 소방관이 영어 논문을 찾아 읽고 통계 수치를 해석하는 일은 현실적으로 어렵다. 더욱이 심리학 연구들은 소방관을 대상으로 하면서도 소방관을 독자로 상정하고 쓰이지 않는다. 이 책은 그 거리를 줄이기 위해 만들어졌다. 연구 결과를 그대로 번역하는 것이 아니라, 그것이 화재 현장에서 무엇을 의미하는지를 함께 풀어내는 것이 편저자의 역할이다.</p>
+<p><strong>책의 구성</strong></p>
+<p class="indent">총 9개 챕터로 이루어진다. 1장과 2장은 소방관이 실제로 어떻게 결정을 내리는지를 다룬다. 패턴 인식 결정(Recognition-Primed Decision, RPD) 모델을 중심으로, 경험이 판단을 어떻게 형성하고 또 어떻게 왜곡할 수 있는지를 살펴본다. 3장은 인지편향이다. 과신 편향, 통제 환상, 낙관 편향 등 소방관의 현장 판단에 조용히 스며드는 다섯 가지 편향을 다룬다. 4장은 목표 갈등이다. 살아야 한다는 본능과 구해야 한다는 사명이 충돌하는 순간, 인간의 인지 체계는 어떻게 반응하는지를 짚는다. 5장과 6장은 감정과 죽음 인식의 문제를 다룬다. 감정은 결정의 장애물이 아니라 정보라는 것, 그리고 죽음을 의식한다고 해서 위험 행동이 줄지 않는다는 연구 결과를 소개한다. 7장은 조직문화다. 영웅주의와 공격적 전술 선호, 변화 저항이 어떻게 개인의 판단을 왜곡하는지를 살펴본다. 8장은 성격과 위험감수의 관계를 다루고, 9장은 지금까지의 논의를 바탕으로 더 나은 결정을 위해 무엇을 훈련하고 어떻게 개입할 수 있는지를 제안하며 마무리한다.</p>
+<p>각 챕터는 현장 장면으로 시작한다. 논문의 핵심 내용을 재서술한 뒤, 해설과 소결로 마무리하는 구조다. 인용된 연구들은 미국, 유럽, 대만 등 다양한 현장을 배경으로 하지만, 해설에서 국내 소방 맥락에 맞게 검토하고 적용 가능성을 함께 따졌다.</p>
+<p>이론을 소개하는 것이 목적이 아니다. 소방관이 자신이 이미 겪어온 경험을 다른 언어로 이해하는 것, 그리고 다음 출동에서 조금 더 나은 판단을 내리는 데 실제로 도움이 되는 것, 그것이 이 책이 하려는 일이다.</p>
+<hr class="section-rule">
+<p><em>이 책은 편저자가 선별한 해외 논문과 보고서를 바탕으로 구성되었다. 초고 작성 과정에서 AI 도구(Anthropic Claude Code)를 활용하였으며, 자료 선별·해석·최종 서술은 편저자의 판단과 책임 하에 이루어졌다.</em></p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>1장. 화재 현장에서 결정은 어떻게 내려지는가</h1>
+<p class="indent">첫 번째 차량이 현장에 도착하는 순간, 지휘관에게 주어진 시간은 30초 안팎이다. 연기 색을 읽고, 불길의 위치를 파악하고, 건물 안에 사람이 남아 있는지를 판단하고, 첫 번째 호스를 어디에 배치할지 결정한다. 메모를 하거나 선택지를 하나씩 비교할 여유는 없다. 숙련된 지휘관은 그냥 안다. 아니, 안다고 느낀다. 그런데 그 느낌은 어디서 오는가.</p>
+<hr class="section-rule">
+<h2>패턴으로 결정한다 — RPD 모델</h2>
+<p class="indent">소방관의 의사결정을 심리학적으로 설명한 최초의 체계적 연구는 1980년대 미국의 심리학자 게리 클라인(Gary Klein)에서 시작한다. 클라인은 베테랑 소방 지휘관들을 인터뷰하면서 예상치 못한 사실을 발견했다. 그들은 결정을 내릴 때 여러 선택지를 비교하지 않았다. 상황을 보고, 즉시 가장 적합한 행동 방침을 떠올리고, 그것이 작동할지 머릿속으로 시뮬레이션해본 뒤, 문제가 없으면 그대로 실행했다. 클라인은 이 과정을 패턴 인식 결정(Recognition-Primed Decision, RPD)이라고 불렀다.</p>
+<p>RPD 모델에 따르면 경험 많은 지휘관의 현장 판단은 네 단계로 구성된다. 첫째, 이 상황에서 달성 가능한 목표가 무엇인지 파악한다. 둘째, 그 목표와 관련된 단서를 인식한다. 셋째, 상황이 어떻게 전개될지를 예측한다. 넷째, 명백한 행동을 선택한다. 핵심은 이 과정이 의식적 분석이 아니라는 점이다. 경험이 쌓이면서 형성된 패턴이, 뇌로 하여금 상황을 자동으로 인식하고 행동을 불러내도록 한다.</p>
+<p>Carrigan(2014)은 이 모델을 실제 소방관들에게 직접 검증했다. 뉴햄프셔 소방아카데미 연구의 일환으로, Salem 소방서 캡틴 4명에게 실제 화재 영상 10편을 보여주고 각 장면에서 무엇을 보고, 어떤 목표를 설정하며, 어떤 행동을 선택하는지를 인터뷰했다.¹ 결과는 RPD 모델을 강하게 지지했다. 지휘관들은 거의 예외 없이 빠르고 일관된 판단을 내렸으며, 대안을 검토하는 경우는 드물었다. 가장 중요하게 읽는 단서는 화재의 위치와 규모였다. 의외의 발견도 있었다. 많은 경우 지휘관들은 생명 구조보다 사건 안정화를 첫 번째 목표로 설정했다. 불을 먼저 잡아야 구조도 가능하다는 논리였다. 참여자들 사이의 일관성은 높았다. 경험 많은 지휘관들은 비슷한 상황을 비슷하게 읽었다.</p>
+<hr class="section-rule">
+<h2>경험자는 정말 더 직관적으로 결정하는가 — VR 실험의 반례</h2>
+<p class="indent">그러나 Bayouth와 Franke 연구팀은 같은 가설에 의문을 품었다. Carrigan의 연구는 지휘관이 화재 영상을 보며 설명한 내용을 분석한 것이다. 이것은 사후 서술이다. 사람이 자신의 의사결정 과정을 말로 설명할 때와 실제로 결정을 내릴 때가 다를 수 있다는 것은 심리학에서 오래 알려진 문제다. 실제 결정 과정을 실시간으로 추적한다면 어떤 결과가 나올까.</p>
+<p>Iowa State 대학 연구팀은 세계 최고 해상도의 가상현실(VR) 시스템을 활용해 소방관 42명의 의사결정 과정을 정밀하게 추적했다.² 경험자(10년 이상, 22명)와 신참(10년 미만, 20명)으로 나눈 뒤, 사전 역화(backdraft) 위험 시나리오 안에서 각자가 어떤 정보를 어떤 순서로 검토하고, 얼마나 오래 검토하며, 최종적으로 무엇을 선택하는지를 VirtuTrace 기술로 기록했다. 가설은 세 가지였다. 경험자는 첫 번째 선택지를 최종 결정으로 채택한다, 경험자는 더 적은 정보를 검토한다, 경험자는 더 빠르게 결정한다.</p>
+<p>세 가설 모두 기각되었다. 경험자들은 신참보다 더 많은 정보를 검토했고(7.81개 vs. 5.23개), 결정까지 더 오랜 시간이 걸렸다(219초 vs. 170초). 첫 번째 검토한 선택지를 최종 결정으로 채택하는 비율도 경험자(48%)와 신참(24%) 사이에 통계적으로 유의한 차이가 없었다. 즉, VR 환경에서 경험 많은 소방관은 더 빠르고 직관적으로 결정하지 않았다. 오히려 반대였다.</p>
+<hr class="section-rule">
+<h2>해설</h2>
+<p class="indent">두 연구를 나란히 놓으면 불편한 긴장이 생긴다. Carrigan은 RPD 모델을 지지하고, Bayouth-Franke는 그것을 반박한다. 어느 연구가 맞는가.</p>
+<p>이 긴장은 방법론의 차이에서 비롯된다. Carrigan의 인터뷰 연구는 경험 지휘관이 자신의 판단을 어떻게 서술하는지를 포착했다. Bayouth-Franke의 실험은 결정이 실제로 이루어지는 순간을 추적했다. 두 방법은 서로 다른 것을 측정한다. 전자는 경험 지휘관이 구성하는 자기 이해이고, 후자는 관찰된 행동이다. 이 두 가지가 일치하지 않는다는 사실 자체가 의미 있다.</p>
+<p>Bayouth-Franke 연구팀의 해석도 눈여겨볼 만하다. 경험자가 더 많은 정보를 더 오래 검토한 것은, 잘못된 결정의 결과를 더 잘 알기 때문일 수 있다. 신참이 더 빠르게 결정한 것은 자신감이 아니라 오히려 무지의 결과일 수 있다. 국내 소방 현장에도 이 두 유형은 공존한다. 경험이 쌓일수록 빠르게 직관으로 판단하는 지휘관이 있는 반면, 더 조심스럽고 더 많은 확인을 요구하는 지휘관도 있다. 어느 쪽이 더 낫다고 단정하기 어렵다. 상황의 복잡성, 시간 압박, 가용 자원에 따라 적절한 전략은 달라진다.</p>
+<p>한 가지는 분명하다. 경험은 중요하지만, 경험이 의사결정에 미치는 영향은 단순하지 않다. 경험이 더 나은 판단을 만들기도 하지만, 편향과 오류의 원천이 되기도 한다. 다음 장에서는 그 양면을 좀 더 자세히 들여다본다.</p>
+<hr class="section-rule">
+<h2>소결</h2>
+<ul>
+<li>소방 지휘관의 현장 결정은 선택지 비교가 아니라 경험에 기반한 패턴 인식으로 이루어진다는 것이 RPD 모델의 주장이다.</li>
+<li>질적 인터뷰 연구는 이 모델을 지지하지만, VR 실험 연구는 경험자가 반드시 더 빠르고 직관적으로 결정하지는 않음을 보여준다.</li>
+<li>경험이 의사결정에 미치는 영향은 단순하지 않다. 더 많이 알수록 더 빠를 수도 있고, 더 신중해질 수도 있다.</li>
+<li>이 불확실성은 2장에서 경험과 편향의 관계를 탐구하는 출발점이 된다.</li>
+</ul>
+<hr class="section-rule">
+<h2 class="footnotes-header">미주</h2>
+<p>¹ Carrigan, S. (2014). <em>Fireground decision-making: A qualitative study</em>. New Hampshire Fire Academy, National Fire Academy Executive Fire Officer Program.</p>
+<p>² Bayouth, S. T., Keren, N., Franke, W. D., & Godby, K. (2013). Examining firefighter decision-making: How experience influences speed in process and choice. <em>International Fire Service Journal of Leadership and Management, 7</em>, 51–60.</p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>2장. 경험은 판단을 어떻게 바꾸는가</h1>
+<p class="indent">같은 건물, 같은 연기, 같은 신고 내용. 그런데 15년 차 소방위와 3년 차 소방사는 다른 결정을 내린다. 베테랑은 진입 전 한 박자 멈추고 더 많은 것을 확인한다. 신참은 조금 더 빠르게 움직인다. 현장 사람들은 이 차이를 경험이라고 부른다. 그런데 경험이 구체적으로 무엇을 어떻게 바꾸는지 물으면 명쾌하게 답하는 사람은 많지 않다.</p>
+<hr class="section-rule">
+<h2>경험은 위험을 다르게 보게 한다</h2>
+<p class="indent">Stehman(2014)은 미국 소방관 512명을 대상으로 위험감수 태도와 행동에 영향을 미치는 요인들을 체계적으로 분석했다.¹ 연령, 경력 연수, 지휘관 경험, 계급, Type T 성격 여부, 위험-이득 분석 정책의 유무가 모두 검토되었다. 결론은 명확했다. 나이가 들수록, 지휘관 경험이 쌓일수록, 계급이 높아질수록 위험감수 태도는 낮아졌다. 그런데 그 영향력의 크기는 변수마다 달랐다.</p>
+<p>가장 뚜렷한 변수는 연령이었다. 25세 이하 소방관 중 44.9%가 "무서운 상황을 즐긴다"는 문항에 동의한 반면, 55세 이상에서는 20%만이 동의했다. 생명 구조를 위해 정기적으로 위험을 감수하겠다는 항목에서도 연령이 낮을수록 위험 수용 경향이 뚜렷했다. 경력 연수의 효과도 같은 방향이었지만 연령보다는 완만했다. 21년 이상 경력자에서 위험 회피적 태도가 두드러졌고, 나머지 경력 구간에서는 차이가 크지 않았다.</p>
+<p>지휘관 역할 경험의 효과는 특히 인상적이었다. 항상 현장 지휘관(Incident Commander, IC)으로 활동하는 소방관들은 "위험·흥분 때문에 소방관이 되었다"는 진술을 가장 많이 부정했다(82.6%). 반면 지휘관 역할을 한 번도 해보지 않았거나 드물게 한 소방관들은 재산 보호를 위해 더 높은 위험을 정기적으로 감수하겠다는 답변이 더 많았다. 지휘관 역할은 단순한 경력 연수와 다른 무언가를 만들어낸다. 누군가의 생사를 책임지는 자리에서 내린 결정들이 쌓이면, 위험에 대한 시각이 달라지는 것이다.</p>
+<p>계급 효과도 뚜렷했다. 소방사(Firefighter) 직급이 가장 높은 위험감수 경향을 보였고, 중간 관리급(Company Officer)은 중간에, 소방서장급(Chief Officer)은 가장 보수적이었다. 이 패턴은 경험과 책임이 동시에 증가하면서 나타나는 복합적 변화를 반영한다.</p>
+<hr class="section-rule">
+<h2>경험의 역설: 더 조심스러워지지 않는 사람들</h2>
+<p class="indent">그렇다면 경험이 충분히 쌓이면 위험감수는 줄어드는가. 꼭 그렇지는 않다.</p>
+<p class="indent">Stehman은 연구에서 두 가지 상반된 유형을 확인했다. 하나는 경험이 쌓이면서 실제로 위험에 더 신중해지는 소방관이다. 이들은 잘못된 결정의 결과를 직접 목격했거나, 지휘관으로서 그 무게를 몸으로 배운 경우가 많다. 다른 하나는 경험이 쌓였음에도 위험감수 경향이 줄지 않거나 오히려 강화된 소방관이다. 이들 중 상당수는 Type T 성격(Type T Personality)을 보유하고 있었다.</p>
+<p>Type T 성격이란 심리학자 Frank Farley가 제안한 개념으로, 자극과 흥분을 강하게 추구하는 성향을 가리킨다.² 이 성향을 가진 소방관들은 경험이 늘어도 위험을 대하는 방식이 크게 달라지지 않았다. "항상 생명 구조를 위해 위험을 감수한다"는 응답에서, Type T 양성군은 58.4%가 동의한 반면 음성군은 44.8%에 그쳤다. 흥미롭게도 이 차이는 연령이나 경력이 증가해도 완전히 사라지지 않았다.</p>
+<p>Stehman은 이 맥락에서 '소방관 사망 당연시 증후군(Firefighter Duty to Die Syndrome, FDTDS)'이라는 개념도 다루었다. 이는 소방 업무의 성격상 치명적 사고가 불가피하다는, 즉 죽음이 직업의 일부라는 암묵적 믿음이다. 이 믿음은 개인의 성격 특성과 별개로, 소방 문화 전반에 존재한다. FDTDS가 뿌리 깊은 환경에서는 경험이 쌓여도 위험 회피적 판단이 정착하기 어렵다. 문화가 개인의 경험 학습을 덮어쓰기 때문이다.</p>
+<hr class="section-rule">
+<h2>1장의 긴장을 다시 읽는다</h2>
+<p class="indent">1장에서 Carrigan과 Bayouth-Franke의 연구는 서로 다른 그림을 그렸다. Carrigan의 인터뷰 연구는 경험 지휘관들이 빠르고 일관되게 상황을 읽는다는 것을 보여주었다. Bayouth-Franke의 VR 실험은 경험자가 오히려 더 많은 정보를 더 오래 검토한다는 사실을 확인했다.</p>
+<p>Stehman의 데이터는 이 두 결과가 왜 공존할 수 있는지를 설명하는 데 도움을 준다. 경험의 영향은 균일하지 않다. 경험이 쌓이는 방식(지휘관 역할인지 현장 투입인지), 개인의 성격 특성(Type T 여부), 그리고 소속 조직의 문화(FDTDS가 강한지 약한지)에 따라, 경험은 전혀 다른 방향의 판단 패턴을 만들어낸다. 어떤 사람은 경험이 쌓일수록 더 신중해진다. 어떤 사람은 경험이 자신감으로, 그 자신감이 과신으로 이어진다. 경험이 중요하지 않다는 말이 아니다. 경험이 저절로 더 나은 판단을 보장하지는 않는다는 말이다.</p>
+<hr class="section-rule">
+<h2>해설</h2>
+<p class="indent">Stehman의 연구는 미국 소방관 512명을 대상으로 했다. 국내 소방 조직과 직접 비교하는 데는 한계가 있다. 미국 소방서는 유급과 자원봉사 체계가 혼재하고, 지방자치단체별로 장비·인력·문화가 크게 다르다. 그럼에도 흥미로운 점은, 이 연구에서 유급 소방관과 자원봉사 소방관의 위험감수 태도가 놀랍도록 유사했다는 것이다. 소방 문화 자체가 국적이나 고용 형태를 넘어 공통의 가치관을 공유하고 있다는 신호다.</p>
+<p>국내 소방 현장에서 연령과 위험감수의 관계는 다르게 작동할 수도 있다. 직급 체계, 순직 경험, 팀 구성 방식이 다르기 때문이다. 그러나 한 가지는 비교 가능하다. 지휘관 역할 경험이 위험에 대한 시각을 바꾼다는 사실이다. 현장에서 최종 판단의 무게를 직접 경험한 소방관과, 지시를 받아 움직이는 역할만 해온 소방관은 위험을 다르게 느낀다. 이것은 교육과 훈련이 아니라 역할과 책임에서 비롯되는 학습이다.</p>
+<p>Type T 성격에 대해서는 한 가지 주의가 필요하다. 자극 추구 성향은 소방 직무에서 강점이 될 수도 있다. 위험한 상황에서 주저하지 않는 능력, 높은 각성 상태에서도 기능을 유지하는 능력은 소방관에게 필요하다. 문제는 이 성향이 상황적 판단을 압도할 때다. 경험에서 쌓인 지식이 있음에도, 성격적 충동이 그 지식을 건너뛰는 순간 위험한 결정이 만들어진다. 3장에서 다룰 인지편향 중 상당수는 이 메커니즘과 정확히 맞닿아 있다.</p>
+<hr class="section-rule">
+<h2>소결</h2>
+<ul>
+<li>나이, 지휘관 경험, 계급이 높아질수록 위험감수 태도는 전반적으로 낮아진다. 그러나 이 변화는 균일하지 않으며, 개인과 조직에 따라 크게 달라진다.</li>
+<li>Type T 성격을 가진 소방관은 경험이 쌓여도 높은 위험감수 경향이 유지된다. 경험이 성격 특성의 영향을 완전히 상쇄하지는 않는다.</li>
+<li>소방 조직의 문화(FDTDS 등)는 개인의 경험 학습을 강화하거나 무력화하는 환경 요인이다.</li>
+<li>경험이 더 나은 판단으로 이어지려면, 단순한 현장 누적이 아니라 지휘 책임·역할 반성·조직 문화의 변화가 함께 작동해야 한다.</li>
+<li>3장에서는 경험이 오히려 판단을 왜곡하는 메커니즘, 즉 인지편향을 구체적으로 들여다본다.</li>
+</ul>
+<hr class="section-rule">
+<h2 class="footnotes-header">미주</h2>
+<p>¹ Stehman, P. (2014). <em>Firefighter risk-taking behaviors and attitudes: A survey of the United States fire service</em>. National Fire Academy Executive Fire Officer Program Applied Research Project. Type T 성격 개념의 원전은 Farley(1986)이며, Stehman은 BSSS-4 및 SS2 척도로 측정했다.</p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>3장. 우리가 틀리는 방식: 인지편향</h1>
+<p class="indent">오전 11시, 평일 학교 건물 화재. 지휘관은 현장에 도착해 상황을 파악한다. 연기는 3층에서 나오고 있고, 건물 앞에는 대피한 학생들이 모여 있다. 실종자 신고는 없다. 지휘관은 빠르게 판단한다. 구조 우선순위보다 화재 진압에 집중하기로 한다. 그 순간, 그는 한 가지 정보를 무시했다. 교사 한 명이 "화장실에 아직 아이들이 있을 수 있다"고 말하고 있었다. 지휘관의 상황인식 점수는 높았다. 그런데 그는 그 말을 흘려들었다. 왜인가.</p>
+<hr class="section-rule">
+<h2>두 가지 생각 방식</h2>
+<p class="indent">인간의 판단은 두 가지 처리 방식을 동시에 사용한다.¹ 첫 번째는 자동 시스템(System 1)이다. 빠르고 직관적이며 의식적 노력을 거의 필요로 하지 않는다. 경험에서 형성된 패턴을 바탕으로 상황을 즉시 분류하고 반응을 불러낸다. 숙련된 소방관이 현장에 도착하는 순간 "이건 역화(backdraft) 위험이 있다"고 느끼는 것이 이 시스템의 작동이다. 두 번째는 반성적 시스템(System 2)이다. 느리고 분석적이며 많은 인지 자원을 소모한다. 낯선 상황, 복잡한 판단, 여러 선택지를 비교해야 할 때 활성화된다.</p>
+<p>두 시스템 중 하나가 더 낫다고 말하기 어렵다. 자동 시스템은 시간 압박이 극심한 현장에서 없어서는 안 된다. 반성적 시스템만으로 화재 현장을 지휘하는 것은 불가능하다. 문제는 자동 시스템이 작동할 때, 그것이 과거 경험에서 형성된 패턴에 의존하기 때문에, 그 패턴이 현재 상황과 맞지 않을 때도 동일한 결론을 내릴 수 있다는 점이다. 이 오작동을 인지편향(Cognitive Bias)이라 부른다. 편향은 의식적으로 저지르는 오류가 아니다. 비의식적으로 작동하며, 당사자는 자신이 합리적으로 판단하고 있다고 느낀다.</p>
+<hr class="section-rule">
+<h2>소방관에게 특히 위험한 다섯 가지 편향</h2>
+<p class="indent">Lhardy 연구팀은 소방관의 위험감수 행동과 가장 깊이 연결된 5가지 인지편향을 선별하고, 이를 측정하는 척도(Five Cognitive Bias Risk Scale, 5CBR-S)를 개발했다.² 프랑스 소방관 404명(두 독립 표본, 각 202명)을 대상으로 탐색적·확인적 요인 분석을 거쳐 검증된 19문항 척도다.</p>
+<p><strong>첫째, 과신 편향(Overconfidence Bias).</strong> 자신의 지식이나 능력을 실제보다 높게 평가하는 경향이다. 지금까지의 경험이 쌓이면서 '나는 이런 상황을 안다'는 확신이 강해진다. 이 확신이 새로운 정보의 수용을 차단한다. "이 건물은 내가 잘 안다"는 생각이 점검해야 할 것들을 보이지 않게 만든다.</p>
+<p><strong>둘째, 통제 환상(Illusion of Control).</strong> 자신의 능력이 불확실한 결과에 영향을 줄 수 있다고 과대평가하는 것이다. 과신 편향이 현재의 정보를 과대평가하는 것이라면, 통제 환상은 미래의 결과를 통제할 수 있다는 착각이다. 화재가 예상치 못한 방향으로 번질 수 있음을 충분히 인식하지 못하고, 자신의 판단이 상황을 장악할 수 있다고 믿는 것이다.</p>
+<p><strong>셋째, 소수의 법칙 편향(Belief in the Law of Small Numbers).</strong> 제한된 정보만으로 확정적인 결론을 내리는 경향이다. 도착한 지 20초 만에 전체 상황을 파악했다고 믿고, 추가 확인 없이 행동에 나서는 것이 여기에 해당한다. 불완전한 정보를 완전한 것처럼 처리한다.</p>
+<p><strong>넷째, 몰입 상승(Escalation of Commitment).</strong> 초기 판단이 틀렸을 수 있다는 신호가 나타남에도 기존 방침을 고수하는 경향이다. 처음 진입 결정을 내린 뒤, 상황이 달라지고 있는 신호를 무시하거나 축소하여 계속 진입을 유지하는 것이다. 연구에서 이 편향은 감정 조절 능력이 낮은 소방관에게서 특히 강하게 나타났다.</p>
+<p><strong>다섯째, 낙관 편향(Optimism Bias).</strong> 자신은 다른 사람보다 부정적 결과를 경험할 가능성이 낮다고 믿는 경향이다. "사고는 남에게 일어나는 일"이라는 내면의 목소리다. 연구에서 낙관 편향은 정신적 강인함(mental toughness) 및 외향성과 정적 상관을 보였다. 역설적이게도, 강인하고 적극적인 소방관이 이 편향에 더 취약할 수 있다.</p>
+<p>Lhardy 연구팀은 이 다섯 편향 중 세 가지(과신, 몰입 상승, 낙관주의)가 감각 추구 행동과 유의하게 상관됨을 확인했다. 스릴을 추구하는 성향이 높은 소방관일수록 이 세 가지 편향 점수가 높았다. 2장에서 다룬 Type T 성격이 단순히 위험을 즐기는 것에 그치지 않고, 구체적인 인지적 왜곡과 연결되어 있다는 것을 보여준다.</p>
+<hr class="section-rule">
+<h2>안정 편향 — 압박이 올 때 나타나는 본색</h2>
+<p class="indent">인지편향의 또 다른 측면은 그것이 개인마다 일정한 방향성을 갖는다는 점이다. Sallis-Catherwood 연구팀은 영국 소방 지휘관 19명을 대상으로, 1년 간격으로 두 차례 고압 시뮬레이션 훈련을 실시하면서 상황인식(SA)과 판단 편향을 측정했다.³</p>
+<p>연구는 QASA(Quantitative Analysis of Situation Awareness) 방법을 사용했다. 참가자들은 시뮬레이션 도중과 후에 상황 관련 진술의 참/거짓을 판단했고, 이를 통해 실제 SA, 지각 SA, 그리고 편향 점수가 산출되었다. 편향 점수는 두 방향으로 나뉜다. 보수적 편향(conservative bias)은 정보를 거짓으로 판단하는 경향이 강해 실제로 중요한 정보를 놓치는 오류(miss error)를 유발한다. 자유적 편향(liberal bias)은 정보를 참으로 수용하는 경향이 강해 잘못된 정보를 받아들이는 오류(false alarm error)를 유발한다.</p>
+<p>두 가지 결과가 특히 주목할 만했다. 첫째, 모든 참가자가 편향을 보였다. 두 세션을 통틀어 편향 없이 중립적인 판단을 유지한 사람은 단 한 명뿐이었다(그것도 한 세션에서만). 19명의 지휘관은 모두 보수적이거나 자유적인 방향으로 기울어져 있었다. 상황인식 수준이 높았음에도 불구하고다.</p>
+<p>둘째, 편향의 방향은 1년이 지나도 일관되게 유지되었다(r=0.335, p=.046). 같은 사람이 첫 번째 세션에서 보수적 편향을 보이면, 전혀 다른 시나리오와 다른 장소에서 치러진 두 번째 세션에서도 보수적 편향을 보이는 경향이 있었다. 연구팀은 이것을 '안정 편향(resting bias)'이라 불렀다. 스트레스가 높아지면 분석적·적응적 처리를 담당하는 고차 뇌 기능이 억제되고, 개인이 습관적으로 의존해온 반응 패턴이 전면에 나온다는 것이다.</p>
+<p>또 하나의 불편한 발견이 있었다. 실제 SA와 지각 SA(자신의 SA에 대한 자기 평가) 사이에 유의한 상관이 없었다. 즉, 자신이 상황을 잘 파악하고 있다고 느끼는 정도와 실제로 상황을 파악하고 있는 정도가 일치하지 않았다. 어떤 지휘관은 실제보다 과도하게 확신했고, 어떤 지휘관은 실제보다 불필요하게 자신 없어했다. 이 불일치는 각각 서두르는 결정과 머뭇거리는 결정을 유발한다.</p>
+<hr class="section-rule">
+<h2>해설</h2>
+<p class="indent">세 연구를 함께 놓으면 불편한 그림이 그려진다. 인지편향은 미숙함의 산물이 아니다. Sallis-Catherwood 연구의 참가자들은 평균 24년 경력을 가진 현직 지휘관들이었다. 그들은 모두 편향을 보였다. 상황인식이 높아도 편향은 남아 있었다. 경험이 쌓여도 편향의 방향은 바뀌지 않았다. 오히려 스트레스가 높아질수록, 그 개인이 습관적으로 기울어온 방향으로 더 강하게 끌린다.</p>
+<p>Lhardy의 연구는 이 편향들이 측정 가능한 개인 특성이라는 점을 보여준다. 어떤 소방관은 과신 편향이 높고, 어떤 소방관은 몰입 상승에 취약하다. 성격과 감정 조절 능력이 이 편향들의 크기에 영향을 준다. 이것은 훈련이 가능한 영역임을 시사한다.</p>
+<p>Kinsey의 프레임은 이 문제를 가장 기초적인 수준에서 설명한다. 인간의 두뇌는 자동 시스템 없이는 현장을 지휘할 수 없다. 그러나 자동 시스템은 그 본질상 비의식적으로 작동하기 때문에, 스스로 오류를 인식하지 못한다. 그것이 편향을 특히 위험하게 만든다. 잘못된 판단을 내리면서 올바른 판단을 내리고 있다고 느낀다.</p>
+<p>국내 소방 교육과의 연결점도 있다. 현재 대부분의 소방 교육은 지식과 절차를 전달하는 데 집중한다. 그러나 지식이 있어도 편향은 작동한다. Sallis-Catherwood 연구의 지휘관들도 상황인식 자체는 높았다. 문제는 그 정보를 받아들이는 방식이었다. 편향은 지식 교육으로 해결되지 않는다. 자신의 판단 패턴을 인식하고, 그것이 어떤 방향으로 기울어 있는지를 아는 것에서 시작한다.</p>
+<hr class="section-rule">
+<h2>소결</h2>
+<ul>
+<li>소방관의 판단 오류는 무지나 무능이 아니라, 자동 처리 시스템에 내재된 인지편향에서 비롯되는 경우가 많다.</li>
+<li>소방관의 위험감수와 연결된 주요 편향은 다섯 가지다: 과신, 통제 환상, 소수의 법칙, 몰입 상승, 낙관주의.</li>
+<li>이 편향들은 개인마다 방향성이 있고, 압박 상황에서 습관적 패턴으로 나타난다. 경험이 많고 상황인식이 높아도 편향은 남는다.</li>
+<li>자신이 상황을 얼마나 잘 파악하고 있는지에 대한 자기 평가는 실제 상황인식과 일치하지 않는다. 이 불일치 자체가 오류의 원천이다.</li>
+<li>편향 인식 훈련은 지식 전달과 다른 접근이 필요하다. 4장에서는 이 편향들이 작동하는 구체적인 맥락 — 목표 갈등 상황 — 을 들여다본다.</li>
+</ul>
+<hr class="section-rule">
+<h2 class="footnotes-header">미주</h2>
+<p>¹ Kinsey, M. J., Gwynne, S. M. V., Kuligowski, E. D., & Kinateder, M. (2018). Cognitive biases within decision making during fire evacuations. <em>Fire Technology, 55</em>(1), 2–26. https://doi.org/10.1007/s10694-018-0708-0</p>
+<p>² Lhardy, S., Guillet-Descas, E., & Martinent, G. (2025). Development of a scale for measuring cognitive biases related to risk-taking among firefighters: The Five Cognitive Bias Risk Scale (5 CBR-S). <em>Fire, 8</em>(4), 147. https://doi.org/10.3390/fire8040147</p>
+<p>³ Sallis, G., Catherwood, D., Edgar, G. K., Baker, S., & Brookes, D. (2022). Situation awareness and habitual or resting bias in high-pressure fire-incident training command decisions. <em>Fire Safety Journal, 128</em>, 103539. https://doi.org/10.1016/j.firesaf.2022.103539</p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>4장. 목표 갈등: 살고 싶지만 구해야 한다</h1>
+<p class="indent">지휘관이 진입 명령을 내렸다. 무선통신은 작동하지 않는다. 안전 요원도 배치되지 않았다. 공기호흡기 감시 체계도 없다. 현장 대원은 모든 것을 알고 있다. 훈련에서 배웠다. 이런 조건에서는 진입하면 안 된다고. 그런데 지휘관이 앞서 걷고 있다. 동료들이 따라가고 있다. 혼자 남는 것은 선택지에 없다. 몸은 들어가지 말라고 하고, 팀은 들어가고 있다. 그는 진입했다.</p>
+<hr class="section-rule">
+<h2>두 개의 목표가 충돌할 때</h2>
+<p class="indent">소방관의 직무는 구조적으로 긴장을 내포한다. 임무를 완수해야 한다는 목표와 자신을 보호해야 한다는 목표가 같은 공간, 같은 시간에 존재한다. 대부분의 상황에서 이 두 목표는 공존한다. 그러나 현장 조건이 악화되거나, 시간이 촉박하거나, 지휘 구조가 흔들릴 때, 둘은 정면으로 충돌한다. 이것이 목표 갈등(Goal Conflict)이다.</p>
+<p>Hagemann 연구팀은 독일 소방관 340명을 대상으로 이 긴장이 실제 현장에서 얼마나 자주, 어떤 결과를 낳는지를 조사했다.¹ 목표 갈등은 두 가지 유형으로 측정되었다. 첫째는 '빠른 행동 vs. 안전한 행동', 둘째는 '자기보호 vs. 임무 달성'이다. 두 갈등 모두 현장에서 경험된다고 보고되었다. 빠름과 안전의 갈등(평균 3.00)은 자기보호와 임무의 갈등(평균 2.65)보다 더 자주 발생했다. 5점 척도에서 평균 3점이라는 것은, 소방관들이 이 갈등을 드문 예외가 아니라 일상적 경험으로 느끼고 있음을 의미한다.</p>
+<p>목표 갈등이 클수록 의사결정 방식이 달라졌다. 목표 갈등을 더 자주 경험하는 소방관일수록, 목표 간 우선순위를 따지지 않고 직감으로 결정하는 경향이 강해졌다. 정상적인 작전 조건에서라면 따랐을 절차를 밟지 못했다. 그리고 민간인이나 동료가 위험에 처한 상황에서는 자신의 안전을 희생하는 결정을 더 자주 내렸다. 이 관계는 통계적으로 유의미했다(F=7.60, p<.001). 갈등이 많을수록 위험한 결정이 많았다.</p>
+<p>연구에서 제시된 인터뷰 사례들은 이 수치를 구체적으로 보여준다. 무선통신도, 안전 요원도, 공기호흡기 감시도 없는 상황에서 지휘관이 진입을 명령했다. 대원들은 불안을 느꼈지만, 과도하게 임무를 완수하고 싶었고 지휘관의 명령에 반기를 들고 싶지 않아 진입했다. 결과적으로 사고는 발생하지 않았다. 그러나 이것이 옳은 결정이었기 때문이 아니라, 운이 좋았기 때문이다.</p>
+<hr class="section-rule">
+<h2>개인보호장비를 벗는 이유</h2>
+<p class="indent">목표 갈등은 대형 화재 현장의 진입 결정에만 존재하는 것이 아니다. 개인보호장비(Personal Protective Equipment, PPE) 착용 여부라는 훨씬 더 일상적인 선택에서도 작동한다.</p>
+<p>Maglio 연구팀은 미국 12개 소방서 소방관 123명을 심층 인터뷰와 포커스그룹을 통해 조사했다.² 목적은 하나였다. 위험을 알고 있고, 규정도 알고 있고, 장비도 있는 소방관이 왜 PPE를 착용하지 않는가. 연구는 세 가지 요인을 확인했다.</p>
+<p><strong>첫째, 소방관 정체성.</strong> 더러운 장비는 경험의 훈장이다. 새 장비는 신참의 증거다. 한 베테랑 소방관은 신임 동료에게 이렇게 말했다. "화재에 들어가서 방화복을 새까맣게 만들어야 해. 지금 너무 새것 같아 보이잖아." 이 문화는 PPE를 기능(보호)이 아니라 상징(경험의 부재)으로 읽는다. 그 독법 안에서 장비를 잘 갖추는 것은 신중함이 아니라 소심함의 증거가 된다. 한 간부는 말했다. "우리 사회는 소방관이 자신을 희생한다는 낭만화된 이미지를 가지고 있어요. 그리고 우리는 그 이미지를 강화하기 위해 할 수 있는 모든 것을 하죠."</p>
+<p><strong>둘째, 목표 유혹(Goal Seduction).</strong> PPE가 임무 수행을 방해한다는 인식이다. 먼저 도착하기 위해 장비를 차 안에서 착용한다. SCBA를 벗으면 더 빠르게 움직일 수 있다. 두 소방대가 같은 현장으로 출동할 때, 먼저 도착하는 쪽이 현장 지휘권을 가져가고 '진짜 일'을 한다. 안전띠를 매고 장비를 완전히 갖추는 일이 그 경쟁에서 불리하게 느껴진다. 한 간부는 말했다. "그게 우리를 죽이고 있어요. 하지만 그 경쟁심을 없애고 싶지는 않아요. 통제하고 싶을 뿐이에요."</p>
+<p><strong>셋째, 상황 회피(Situation Aversion).</strong> 동료의 비웃음을 피하기 위해 안전 장비를 벗는다. 오버홀(잔불 정리) 단계에서 연기가 남아 있어도 SCBA를 착용하면 "겁쟁이"로 불릴 수 있다. 장비 착용이 편안하지 않다는 것도 이유가 되고, "눈에 보이는 위험이 없다"는 판단 착오도 함께 작동한다. 훈련에서는 착용하라고 배웠는데, 소방서에 오면 고참이 착용하지 않는다. 신참은 그 간극 앞에서 대부분 문화를 따른다.</p>
+<p>목표 유혹과 상황 회피는 동시에 작동하는 경우가 많았다. PPE가 임무를 방해한다고 느끼는 소방관은, 착용하면 동료에게 '약한 사람'으로 보일 것이라는 두려움도 함께 경험했다. 두 압력이 합쳐질 때, 장비를 벗는 것은 거의 자동으로 이루어진다.</p>
+<hr class="section-rule">
+<h2>해설</h2>
+<p class="indent">두 연구는 목표 갈등을 서로 다른 각도에서 조명한다. Hagemann은 구조적 갈등 — 임무와 안전이 직무 설계 자체에 내재된 긴장 — 을 다룬다. Maglio는 문화적 갈등 — 소방관이라는 정체성이 안전 행동을 어떻게 저해하는지 — 을 드러낸다. 두 갈등은 서로를 강화한다. 현장 조건이 빠른 행동을 요구할 때, 속도와 용기를 동일시하는 문화는 안전을 선택하는 것을 더 어렵게 만든다.</p>
+<p>국내 소방 현장에서 이 두 압력은 특유의 방식으로 결합된다. 위계 구조가 강한 환경에서 지휘관의 판단에 이의를 제기하는 것은 단순한 의사결정 문제가 아니라 조직 내 위치의 문제가 된다. Hagemann 연구의 인터뷰에서 소방관들이 진입한 이유 중 하나는 "지휘관의 명령에 반기를 들고 싶지 않아서"였다. 이것은 독일에서만의 이야기가 아니다.</p>
+<p>Maglio 연구에서 PPE 착용을 지속한 소방관들에게는 두 가지 공통점이 있었다. 개인 의지 — 자신의 건강 위험을 명확하게 인식하고 사회적 압력을 이겨내는 힘 — 와 조직 연대 — 간부가 먼저 장비를 갖추고, 동료가 서로의 착용 여부를 확인하는 문화 — 였다. 이 두 가지가 함께 작동할 때, 문화는 바뀐다.</p>
+<p>Hagemann이 제안한 디브리핑(Debriefing)은 이 맥락에서 의미 있는 도구다. 연구는 정기적이고 충분한 디브리핑이 소통 문제, 지휘 문제, 공유 정신 모델 문제를 줄이고, 이것이 매개가 되어 목표 갈등을 감소시킨다는 것을 보여주었다. 단순한 기술 검토가 아니라 팀 과정 — 그 출동에서 누가 무엇을 생각했고, 왜 그 결정이 내려졌는지 — 을 다루는 디브리핑이 효과적이었다. 사후 검토는 단순한 학습이 아니다. 다음 번 목표 갈등 상황에서 팀이 함께 더 나은 선택을 내릴 수 있게 하는 집단적 연습이다.</p>
+<hr class="section-rule">
+<h2>소결</h2>
+<ul>
+<li>소방관은 '빠른 행동 vs. 안전한 행동', '자기보호 vs. 임무 달성'이라는 두 유형의 목표 갈등을 현장에서 일상적으로 경험한다. 갈등이 강할수록 직감에 의존하고 자신의 안전을 희생하는 결정이 늘어난다.</li>
+<li>PPE 미착용은 무지의 결과가 아니다. 소방관 정체성, 목표 유혹, 상황 회피라는 세 가지 사회적·심리적 압력이 동시에 작동한다. 지식만으로 행동이 바뀌지 않는다.</li>
+<li>목표 갈등은 개인의 성격 문제도, 용기의 부족도 아니다. 직무 자체에 내재된 구조적 긴장이며, 문화가 이 긴장을 어떻게 해석하느냐에 따라 결정의 방향이 달라진다.</li>
+<li>디브리핑은 이 갈등을 완화하는 실천적 도구다. 기술 검토를 넘어 팀 과정을 다루는 구조화된 디브리핑이 목표 갈등을 줄이는 데 효과적이다.</li>
+<li>5장에서는 이 갈등 상황에서 소방관이 경험하는 감정, 특히 두려움과 무력감이 의사결정에 어떤 역할을 하는지를 살펴본다.</li>
+</ul>
+<hr class="section-rule">
+<h2 class="footnotes-header">미주</h2>
+<p>¹ Hagemann, V., Heinemann, L., Peifer, C., Aust, F., & Holtz, M. (2022). Risky decision making due to goal conflicts in firefighting—Debriefing as a countermeasure to enhance safety behavior. <em>Safety, 8</em>(2), 21. https://doi.org/10.3390/safety8020021</p>
+<p>² Maglio, M. A., Scott, C., Davis, A. L., Allen, J., & Taylor, J. A. (2016). Situational pressures that influence firefighters' decision making about personal protective equipment: A qualitative analysis. <em>American Journal of Health Behavior, 40</em>(5), 555–567. https://doi.org/10.5993/AJHB.40.5.2</p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>5장. 감정은 결정의 적인가</h1>
+<p class="indent">출동 벨이 울린다. 3층 주거 건물 화재, 요구조자 있음. 차 안에서 장갑을 끼면서 박 소방사는 심장이 빠르게 뛰는 것을 느낀다. 위장이 조여들고, 손이 약간 떨린다. 그는 그 느낌을 안다. 두 달 전 같은 느낌을 받았을 때, 탈출 경로가 막혔고 동료를 잃을 뻔했다. 지금 그 기억이 올라온다. 차가 현장에 가까워질수록 감각이 더 선명해진다. 그는 그 느낌을 없애려 한다. 집중해야 한다. 감정을 치워야 한다. 그런데 정말 감정을 치워야 하는가.</p>
+<hr class="section-rule">
+<h2>감정은 장애물인가, 정보인가</h2>
+<p class="indent">소방관들은 자신의 감정에 대해 말하지 않는다. 강해야 한다는 문화가 있고, 두려움을 표현하는 것은 무능의 징후로 읽힌다. 감정은 결정을 흐리는 것이고, 판단력이 좋은 사람은 감정을 통제한다는 믿음이 소방 조직 안에 깊이 자리 잡고 있다.</p>
+<p>Evans 연구팀은 이 믿음에 정면으로 의문을 제기했다.¹ 소방관의 감정에 관한 문헌을 체계적으로 검토한 이 질적 연구는, 감정을 단순히 제거해야 할 장애물로 보는 시각이 잘못되었다는 것을 보여준다. 감정은 정보다. 상황에 대한 뇌의 평가 결과이며, 그 평가가 담긴 채로 의사결정에 영향을 미친다. 문제는 감정의 존재가 아니라, 그 감정이 어떻게 처리되느냐다.</p>
+<p>연구는 Pfister와 Böhm의 감정 유형 분류를 활용해 소방 현장에서 나타나는 감정의 기능을 설명한다. 결과 감정(outcome emotions)은 후회나 실망처럼 과거 사건에 대한 반응이다. 예기 감정(anticipatory emotions)은 두려움이나 희망처럼 현재 상황에서 나타나는 실시간 신호다. 예상 감정(anticipated emotions)은 미래 결과를 상상하며 느끼는 것이고, 부수적 감정(incidental emotions)은 현재 상황과 무관한 배경 감정이다. 이 네 가지 유형은 각기 다른 방식으로 결정에 영향을 준다. 예기 감정인 두려움은 위험 신호로 작동할 수 있다. 그러나 부수적 감정인 피로나 만성 스트레스가 판단에 개입할 때, 그것은 오류의 원천이 된다.</p>
+<p>소방관의 감정 역량을 다루는 틀로서, 연구는 정서지능(Emotional Intelligence, EI) 개념을 소개한다. EI는 세 가지 요소로 구성된다. 첫째는 능력 EI(Ability EI)로, 자신과 타인의 감정을 인식하고 활용하는 인지적 능력이다. 둘째는 정서 관련 성격 특성(Affect-related Personality Traits)으로, 감정적 경험에 대한 안정적인 반응 패턴이다. 셋째는 감정 조절(Emotion Regulation)로, 감정을 어떤 방식으로 관리하느냐에 관한 것이다. 이 세 요소 중에서 실질적인 개입 가능성이 가장 높은 것은 감정 조절이다.</p>
+<hr class="section-rule">
+<h2>스트레스의 역설: 도움이 되기도 하고, 망치기도 한다</h2>
+<p class="indent">감정이 정보라면, 스트레스는 그 정보가 전달되는 신체적 채널이다. 스트레스 반응은 위협을 감지한 뇌가 신체를 준비시키는 과정이다. 교감신경계가 활성화되어 심박수가 오르고, 근육에 혈류가 집중되고, 에피네프린과 노르에피네프린이 분비된다. 이것은 인간이 수만 년에 걸쳐 정교하게 발전시킨 생존 시스템이다.</p>
+<p>그런데 이 시스템에는 역설이 있다. Hamre의 연구는 스트레스가 수행 능력에 미치는 영향이 역U자 형태를 그린다는 것을 보여준다.² 낮거나 중간 수준의 스트레스는 집중력을 높이고 반응 속도를 개선한다. 그러나 스트레스가 지각된 대처 자원을 초과하는 순간, 수행 능력은 급격히 저하된다. 이것이 예르키스-도슨 곡선(Yerkes-Dodson Curve)이다. 소방관은 이 곡선 위에서 산다. 적절한 각성은 더 예리하게 상황을 읽게 한다. 그러나 과도한 각성은 전전두피질(Prefrontal Cortex)의 기능을 억제하고, 더 반응적인 중뇌(Midbrain)가 판단을 주도하게 만든다. 충동적이고 보상을 추구하는 결정이 늘어난다.</p>
+<p>그런데 가장 흥미로운 발견은 스트레스 자체보다 스트레스에 대한 인식이 더 결정적이라는 것이다. Keller 연구팀의 연구에 따르면, 높은 스트레스 상황에 있는 사람 중 스트레스가 건강에 나쁘다고 믿는 사람은 그렇지 않은 사람보다 조기 사망 위험이 43% 높았다. 스트레스 자체가 아니라 스트레스에 대한 믿음이 신체 반응을 바꿨다. Hamre는 이것을 스트레스 마인드셋(Stress Mindset)으로 개념화한다. 스트레스를 위협으로 보는 사람과 도전으로 보는 사람은 생리적 반응 자체가 다르다. 위협 상태에서는 말초 혈관 저항이 증가하고 인지 수행이 저하된다. 도전 상태에서는 심박 출량이 늘고, 같은 수준의 각성이 수행 능력을 오히려 향상시킨다.</p>
+<p>Navy SEAL 선발 과정을 대상으로 한 Smith 연구는 이 차이가 실제 결과로 이어진다는 것을 확인했다. 스트레스를 향상 기제로 인식하는 후보자는 장애물 코스에서 더 좋은 성적을 거뒀고, 교관 평가에서 더 높은 점수를 받았으며, 선발 과정에서 더 오래 살아남았다.</p>
+<hr class="section-rule">
+<h2>감정 조절: 억압은 답이 아니다</h2>
+<p class="indent">Evans 연구가 강조하는 두 번째 핵심 발견은 감정 조절 전략의 차이다. 감정을 관리하는 방식은 크게 두 가지로 나뉜다. 인지 재평가(cognitive reappraisal)는 상황의 의미를 재해석해 감정적 영향을 변화시키는 것이다. 억압(suppression)은 감정을 경험하고 있음에도 표현하거나 처리하지 않고 누르는 것이다.</p>
+<p>소방 문화에서는 억압이 지배적이다. 두려움이나 슬픔은 드러내지 않는다. 약점처럼 보이기 때문이다. 그러나 억압의 비용은 크다. Levy-Gigi 연구팀은 인지 재평가와 억압을 유연하게 전환하는 능력이 있는 사람이, 억압에만 의존하는 사람보다 외상 후 스트레스 장애(Post-Traumatic Stress Disorder, PTSD) 위험이 유의하게 낮다는 것을 보여주었다. 중요한 것은 어떤 전략이 더 낫느냐가 아니다. 유연성 자체다. 상황에 따라 다른 전략을 쓸 수 있는 사람이 더 잘 회복한다.</p>
+<p>Evans의 연구에서 확인된 PTSD 유병률은 소방관에게 5~37%로 보고된다. 일반 인구(약 7.8%)의 수배에 달한다. 이 수치 뒤에는 침묵의 문화가 있다. 동료가 힘들다고 말하면 약하다고 여겨지고, 도움을 요청하면 자격을 의심받는다. 이 문화는 개인이 감정을 처리하는 가장 자연스러운 방식인 언어화와 공유를 차단한다. 그 결과 감정은 처리되지 못하고 누적된다.</p>
+<p>유머는 이 문화 안에서 유일하게 허용된 감정 처리 도구다. Evans는 유머를 소방관의 대처 전략 중 가장 독특하고 효과적인 것으로 다룬다. 그러나 그것이 효과적이려면, 개인의 고통을 덮는 방어기제가 아니라 집단이 함께 어려운 경험을 소화하는 공유 의례로 기능해야 한다.</p>
+<hr class="section-rule">
+<h2>해설</h2>
+<p class="indent">Evans와 Hamre 두 연구는 서로 다른 각도에서 같은 방향을 가리킨다. Evans는 감정이 결정의 적이 아니라 정보이며, 그 처리 방식이 결정의 질과 심리 건강 모두에 영향을 준다고 말한다. Hamre는 스트레스에 대한 인식 자체가 생리적 반응을 바꾸며, 그 인식은 훈련 가능하다고 말한다. 두 주장을 합치면 하나의 결론이 나온다. 소방관의 감정과 스트레스는 제거의 대상이 아니라 관리의 대상이다.</p>
+<p>Hamre의 제안은 구체적이다. 정신 기술 훈련(Mental Skills Training, MST)이다. 호흡 조절, 심상화(visualization), 자기 대화(self-talk)가 핵심 기법이다. 연구는 전술적 호흡(tactical breathing) 보다 긴 날숨 방식(ProlEx: 2초 들이쉬고 8초 내쉬기)이 고인지부하 상황에서 더 효과적임을 보여준다. 심상화는 주 3~5회 15~20분 실시할 때 인지·운동 수행 모두를 향상시킨다. 자기 대화는 새로운 상황에서 특히 효과적이며, 기술 습득 시에는 동기적(motivational) 자기 대화보다 지시적(instructional) 자기 대화가 더 유효하다.</p>
+<p>국내 소방 교육에서 이 영역은 아직 공백에 가깝다. 현재의 스트레스 교육은 대부분 사후 위기 관리(CISM: 사건 후 심리 지원)에 집중되어 있다. 이것은 필요하지만 충분하지 않다. Hamre의 지적처럼, 스트레스의 부정적 측면만 강조하는 교육은 스트레스 지각을 오히려 높여 더 해로운 신체 반응을 유발할 수 있다. 균형이 필요하다. 위험 후 회복뿐 아니라, 위험 속에서 더 잘 판단할 수 있도록 하는 훈련이 병행되어야 한다.</p>
+<p>남성 문화의 문제는 Evans 연구가 가장 명확하게 짚는다. 감정을 드러내면 약해 보인다는 믿음이 억압을 강제하고, 억압이 PTSD의 위험을 높인다. 이 순환을 끊는 것은 개인의 노력만으로 가능하지 않다. 간부가 먼저 자신의 감정 처리 방식을 드러내는 조직 문화, 훈련 후 감정에 대해 이야기하는 것을 허용하는 구조, 그리고 그것이 나약함이 아니라 전문성의 일부임을 가르치는 교육이 함께 가야 한다.</p>
+<hr class="section-rule">
+<h2>소결</h2>
+<ul>
+<li>감정은 결정의 적이 아니다. 감정은 상황에 대한 뇌의 평가 결과이며, 네 가지 유형으로 구분되어 각기 다른 방식으로 판단에 영향을 미친다. 문제는 감정의 존재가 아니라 처리 방식이다.</li>
+<li>스트레스는 일정 수준까지 수행 능력을 향상시키지만, 지각된 대처 자원을 초과하면 전전두피질 기능을 억제하고 결정의 질을 떨어뜨린다. 억압은 스트레스를 관리하는 것이 아니라 누적시킨다.</li>
+<li>스트레스에 대한 인식 자체가 생리적 반응을 바꾼다. 스트레스를 위협이 아닌 도전으로 재평가하는 마인드셋은 훈련 가능하며, 이것이 스트레스 마인드셋 훈련의 출발점이다.</li>
+<li>감정 조절의 핵심은 유연성이다. 상황에 따라 인지 재평가와 다른 전략을 전환하는 능력이 PTSD 위험을 줄인다. 억압에만 의존하는 것은 단기적으로는 기능하지만 장기적으로는 소진과 외상으로 이어진다.</li>
+<li>호흡 조절, 심상화, 자기 대화로 구성된 정신 기술 훈련은 군대와 스포츠 심리학에서 검증된 도구다. 이것을 소방 훈련에 통합하는 방법은 9장에서 다룬다. 그러나 그 전에 물어야 할 질문이 있다. 감정 중 가장 강렬한 것 — 죽음에 대한 두려움 — 은 소방관의 판단을 어떻게 바꾸는가. 6장은 이 질문을 정면으로 다룬다.</li>
+</ul>
+<hr class="section-rule">
+<h2 class="footnotes-header">미주</h2>
+<p>¹ Evans, J., Sherwood, N., Sookoo, S., & Perry, J. (2019). Emotions and the decision-making process: A literature review in the context of the UK fire service. <em>The International Journal of Emergency Services, 9</em>(1), 6–22. https://doi.org/10.1108/IJES-11-2018-0060</p>
+<p>² Hamre, R. M. (2024). <em>Stress as an enhancement: A mindset to improve firefighter performance</em> (Master's thesis). Naval Postgraduate School. https://hdl.handle.net/10945/[handle]</p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>6장. 죽음을 앞에 두고도 뛰어드는 이유</h1>
+<p class="indent">대원들이 건물 안으로 들어간다. 3층 계단에서 연기가 쏟아져 내려온다. 지붕 구조물이 내려앉는 소리가 난다. 그들은 이 상황이 얼마나 위험한지 안다. 훈련에서 배웠고, 현장에서도 배웠다. 그 앎이 그들을 멈추게 하지 않는다. 왜인가. 죽음이 두렵지 않아서인가. 아니면 두려움에도 불구하고 들어가는 것인가. 아니면, 죽음을 알수록 오히려 더 들어가는 것인가.</p>
+<hr class="section-rule">
+<h2>죽음을 상기시켜도 행동은 바뀌지 않는다</h2>
+<p class="indent">죽음을 더 자주, 더 선명하게 인식하면 소방관이 더 안전하게 행동할 것이라는 가설은 직관적으로 설득력이 있다. 자신이 죽을 수 있다는 것을 실감하면, 불필요한 위험을 피하지 않겠는가. 이 가설을 처음으로 소방관 집단에서 직접 실험한 연구가 Martinez 연구팀의 2025년 연구다.¹</p>
+<p>대만 타이페이 소방관 300명(남성 82%)을 대상으로 한 무작위 대조 실험이었다. 참가자들은 두 집단으로 나뉘었다. 죽음 현저성(Mortality Salience, MS) 집단은 자신의 죽음에 관한 14가지 진술을 읽고 판단했다("내 몸이 죽으면 나는 더 이상 존재하지 않는다"). 통제 집단은 죽음과 무관한 부정적 감정 진술을 읽었다("미래는 나를 두렵게 한다"). 그 후 모든 참가자는 신경경제학적 복권 선택 과제를 수행해 실제 위험 선택 행동을 측정받았고, 안전 태도 설문에도 응답했다.</p>
+<p>결과는 예상을 뒤집었다. MS 처치가 전반적인 위험 선택 행동에는 유의한 영향을 미치지 않았다(P=.969). 죽음을 상기시켜도 소방관이 내리는 위험 결정의 수와 크기는 통계적으로 달라지지 않았다. 그런데 안전 태도는 달라졌다. MS 집단이 PPE 착용 태도(P=.041), 보고 및 소통 태도(P=.026), 전체 안전 태도 점수(P=.018) 모두에서 통제 집단보다 높았다. 죽음을 생각하면 안전하게 행동해야 한다고 더 강하게 느끼는데, 실제 선택은 바뀌지 않는다. 이것이 이 연구의 핵심 발견이다.</p>
+<hr class="section-rule">
+<h2>경험이 다르게 반응하게 한다</h2>
+<p class="indent">전체 집단으로 보면 MS의 행동 효과는 없었다. 그러나 경력을 기준으로 집단을 나누면 반대 방향의 두 패턴이 드러난다.</p>
+<p>경력 10년 이상의 베테랑 소방관은 MS 상황에서 위험 결정을 줄였다(MS: 31.5% vs 통제: 36.2%). 특히 저위험 결정을 내릴 때 반응 시간이 길어졌다. 더 신중하게 생각했다. 죽음을 상기한 것이 속도를 낮추고 판단에 공간을 만들었다.</p>
+<p>경력 10년 미만의 신참 소방관은 반대였다. MS 조건에서 위험 선택 비율이 높아졌다(MS: 41.9% vs 통제: 37.0%, P=.007). 죽음을 생각할수록 더 위험한 선택을 했다. 동시에, 안전 태도 점수와 죽음 불안(death anxiety) 수치도 함께 높아졌다. 죽음이 두렵고, 안전하게 행동해야 한다고 느끼고, 그러면서 실제로는 더 위험한 행동을 했다. 이 세 가지가 신참 소방관 안에서 동시에 작동했다.</p>
+<p>연구에서 확인된 또 하나의 강력한 패턴이 있었다. 결정 속도와 위험 선택 사이의 관계다. 빠른 결정이 더 위험한 결정과 일관되게 연결되었다(r=-0.309, P<.001). 반응 시간이 짧을수록 위험한 선택이 많았다. 이 관계는 경력과 연령을 통제한 이후에도 유지되었다(β=-0.31, P<.001). 시간 압박은 위험 결정의 독립적 예측 변수다.</p>
+<hr class="section-rule">
+<h2>공포관리이론: 죽음 불안은 어떻게 작동하는가</h2>
+<p class="indent">이 패턴을 설명하는 이론적 틀이 공포관리이론(Terror Management Theory, TMT)이다. Greenberg, Solomon, Pyszczynski가 제안한 이 이론은, 인간이 자신의 죽음에 대한 인식 — 죽음 현저성 — 을 마주할 때 두 가지 방어 기제를 작동시킨다고 설명한다.</p>
+<p>첫 번째는 근접 방어(proximal defense)다. 죽음에 관한 생각을 의식에서 빠르게 밀어내는 것이다. '나는 건강하다', '그런 일은 일어나지 않는다'와 같은 즉각적 회피다. 두 번째는 원거리 방어(distal defense)다. 자신이 속한 문화적 세계관을 강화하거나 자존감을 높여 상징적 불사(symbolic immortality)를 추구하는 것이다. 소방관에게 원거리 방어는 구체적인 형태를 취할 수 있다. 용감한 소방관으로서의 정체성을 확인하는 것, 동료에게 겁쟁이로 보이지 않는 것, 임무를 완수해 자신의 존재 가치를 증명하는 것. 죽음을 상기할수록 이 정체성에 더 강하게 매달리게 된다.</p>
+<p>신참 소방관이 MS 조건에서 더 위험한 결정을 내린 이유가 여기에 있을 수 있다. 그들은 통제 소재(Locus of Control)가 아직 외재적인 경향이 있다. 자신에게 일어나는 일이 자신의 결정보다 운이나 외부 환경에 달려 있다는 느낌이다. 죽음을 상기했을 때, 어차피 결과는 자신이 통제할 수 없다는 인식이 강해지고, 그 불안을 위험한 행동을 통해 — 용감하게 나섬으로써 — 처리하려는 충동이 생긴다. 반면 베테랑은 경험이 쌓이면서 내재적 통제 소재가 강해진다. 자신의 선택이 결과를 바꿀 수 있다는 감각이다. 죽음을 상기했을 때 그들은 더 신중하게 생각한다.</p>
+<p>Evans의 연구는 이 역학을 다른 각도에서 지지한다. 감정 조절이 미성숙한 상태에서 죽음 불안을 마주하면, 그 불안은 억압되거나 위험 행동으로 표출된다. 감정을 처리하는 내적 언어가 없으면, 신체는 행동으로 반응한다.</p>
+<hr class="section-rule">
+<h2>태도와 행동 사이의 간극</h2>
+<p class="indent">이 연구에서 가장 불편한 발견은 태도와 행동의 분리다. 신참 소방관은 MS 조건에서 안전 태도가 높아졌다. PPE를 착용해야 한다고 더 강하게 느꼈고, 위험을 보고해야 한다고 더 강하게 느꼈다. 그러나 실제 결정에서는 더 위험한 선택을 했다.</p>
+<p>이 간극은 4장에서 다룬 Maglio 연구의 발견과 정확히 맞닿는다. 소방관들은 PPE를 착용해야 한다는 것을 안다. 그러나 착용하지 않는다. 지식과 태도가 행동으로 이어지지 않는다. Martinez 연구는 이 간극이 단순한 무지나 태만이 아님을 보여준다. 죽음을 더 강하게 인식해도, 감정적 불안이 높아져도, 태도가 개선되어도, 실제 위험 선택 패턴은 바뀌지 않거나 오히려 악화된다.</p>
+<p>번아웃과 위험 결정 사이의 연결도 이 연구에서 확인된 중요한 발견이다. 선행 연구들을 종합하면, 업무 스트레스가 번아웃을 매개로 위험한 위험 평가와 결정으로 이어지는 경로가 일관되게 나타난다. 피로한 소방관은 더 빠르게 결정하고, 더 빠른 결정은 더 위험하다. 죽음 불안의 문제이기 이전에, 회복의 문제다.</p>
+<hr class="section-rule">
+<h2>해설</h2>
+<p class="indent">Martinez 연구는 소방 안전 교육의 핵심 가정을 흔든다. '위험을 더 잘 알면 더 안전하게 행동한다'는 가정이 그것이다. 죽음 인식은 태도를 바꾸지만 행동을 바꾸지 않는다. 적어도 경험이 쌓이기 전까지는. 이것이 신참 소방관에게 단지 위험성 교육을 강화하는 것의 한계다.</p>
+<p>베테랑과 신참의 반응 차이는 훈련 설계에 직접적인 시사점을 준다. 연구팀의 제언은 명확하다. 베테랑에게는 PPE 착용의 중요성을 다시 상기시키는 교육이 필요하다. 그들은 MS에 반응해 더 신중해지지만, 죽음 불안이 낮아져 자신의 안전에 대한 경각심도 낮아지는 경향이 있기 때문이다. 신참에게는 개인 역량 교육이 아니라 목표 갈등을 최소화하는 시스템이 필요하다. 위험한 행동을 하지 않아도 되는 구조, 안전한 선택을 장려하는 보상 체계, 죽음 불안을 행동으로 처리하지 않아도 되는 감정 처리 경로가 그것이다.</p>
+<p>국내 소방 환경에서 이 발견은 특수한 의미를 갖는다. 신참 소방관들이 현장에서 경험하는 죽음 불안은 일상적이다. 그런데 그것을 다룰 공식적 공간은 거의 없다. 감정을 드러내면 나약하게 보이고, 두려움을 말하면 자격을 의심받는다. 이 문화 안에서 죽음 불안은 처리되지 못하고, 원거리 방어 — 더 용감하게, 더 앞으로 — 의 형태로 표출될 가능성이 높다. 5장에서 확인한 남성 문화의 억압 구조가 여기서 다시 작동한다.</p>
+<p>한 가지 더. 이 연구는 대만 소방관을 대상으로 했다. 동아시아 소방 문화라는 공통 배경이 있어 국내 맥락과의 접점이 크다. 그러나 문화적 세계관과 통제 소재에 관한 해석은 집단마다 다를 수 있다. 국내 소방관을 대상으로 한 후속 연구가 필요한 영역이다.</p>
+<hr class="section-rule">
+<h2>소결</h2>
+<ul>
+<li>죽음을 상기시켜도 소방관의 실제 위험 선택 행동은 전반적으로 변하지 않는다. 안전 태도는 높아지지만, 태도와 행동 사이에는 일관된 간극이 존재한다.</li>
+<li>경험은 죽음 인식에 대한 반응을 다르게 만든다. 베테랑은 죽음을 상기할 때 더 신중해지고, 신참은 오히려 더 위험한 선택을 한다. 이 차이는 통제 소재의 내재화와 연결된다.</li>
+<li>공포관리이론에 따르면, 죽음 불안은 억압되거나 위험 행동을 통해 처리된다. 용감한 소방관이라는 정체성을 강화함으로써 죽음의 두려움을 관리하는 원거리 방어가 작동한다.</li>
+<li>결정 속도가 위험 선택의 독립적 예측 변수다. 빠른 결정은 더 위험하다. 번아웃이 이 속도를 높인다.</li>
+<li>안전 교육의 핵심은 태도 변화가 아니라 행동 구조 변화다. 7장에서는 이 행동 구조를 결정짓는 조직문화, 특히 영웅주의의 문제를 들여다본다.</li>
+</ul>
+<hr class="section-rule">
+<h2 class="footnotes-header">미주</h2>
+<p>¹ Martínez, R. M., Goh, K. K., Fan, Y. T., Chen, Y. C., Pan, T. H., Chang, C. M., Yang, C. T., Chang, T. T., & Chen, C. (2025). Mortality salience enhances safety attitudes without reducing risk-taking in junior firefighters. <em>Preprint</em>. https://doi.org/10.21203/rs.3.rs-7296428/v1</p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>7장. 영웅주의라는 함정: 조직문화와 판단 왜곡</h1>
+<p class="indent">현장 지휘관이 진입을 결정했다. 2층 창문에서 아이 울음소리가 들린다는 목격자 진술이 있었다. 구조 확인은 아직 안 됐다. 지붕 상태가 불안하다. 절차상으로는 추가 확인이 필요하다. 그런데 지휘관은 이미 걷고 있다. 대원들이 따라간다. 멈추는 사람은 없다. 나중에 보고서에는 이렇게 기록된다. "즉각적 구조가 필요한 상황에서 진입을 결정했다." 이것이 영웅주의인가, 올바른 판단인가. 둘의 경계는 어디인가.</p>
+<hr class="section-rule">
+<h2>영웅주의의 두 얼굴</h2>
+<p class="indent">소방관에 대한 사회적 이미지는 강렬하다. 불 속으로 뛰어드는 사람, 남이 피할 때 들어가는 사람. 이 이미지는 소방관에게 강력한 자원이자 강력한 함정이다.</p>
+<p>Jung-Chang 연구팀은 미국의 고참 소방 간부 10명을 대상으로 심층 인터뷰를 실시했다.¹ 평균 20년 이상의 경력을 가진 이들이 소방 문화를 어떻게 경험했는지를 질적으로 분석한 연구다. 연구는 현장 판단을 왜곡하는 세 가지 조직문화 요인을 확인했다. 첫째는 영웅주의(heroism), 둘째는 공격적 전술(aggressive tactics), 셋째는 변화 저항(resistance to change)이다.</p>
+<p>영웅주의는 이중 기능을 한다. 긍정적 측면에서 그것은 지역사회의 신뢰를 만들어내고, 대원들의 직업적 자긍심과 헌신을 가능하게 한다. 소방관이 위험한 상황에서도 포기하지 않는 이유 중 하나는 이 영웅주의적 정체성이다. 문제는 그 정체성이 현장 판단을 지배하기 시작할 때다. 인터뷰 대상자들은 특히 아이가 관련된 상황에서 현장 지휘관의 판단이 흔들린다고 말했다. "어린이가 안에 있다고 하면 모든 것이 달라진다. 훈련에서 배운 것, 지휘관의 지시, 절차 — 그것들이 사라지고, 들어가야 한다는 충동만 남는다." 영웅주의는 판단의 기준을 '안전한가'에서 '영웅적인가'로 바꾼다. 그 전환이 비의식적으로 일어난다는 것이 위험하다.</p>
+<hr class="section-rule">
+<h2>공격적 전술: 무모함이 규범이 될 때</h2>
+<p class="indent">공격적 전술이 소방 현장에서 나쁜 것이라는 전제는 틀렸다. 인터뷰 대상자들은 공격성(aggression)을 필요악이 아니라 필수 역량으로 봤다. "공격적 소방 진압은 문화적 규범이다. 화재의 시간적 특성이 공격성을 요구한다." 조금 위험하다고 느낄 때도 들어가야 하고, 상황이 불확실해도 결정을 내려야 한다.</p>
+<p>그런데 연구가 주목하는 것은 이 공격적 판단의 근거다. 인터뷰에서 확인된 공격적 진입의 이유는 세 가지였다. 첫째, 위험을 과소평가하는 것이다. "이 정도면 괜찮겠다"는 판단이 실제보다 낙관적으로 기울어진다. 둘째, 공격적 행동이 더 나은 결과를 낳는다는 믿음이다. "더 빠르게, 더 깊이 들어가야 생존자를 구할 수 있다"는 확신이다. 셋째, 현장에서 즉흥적 판단(improvisation)이 필요하다는 인식이다. 절차가 모든 상황을 커버할 수 없고, 경험 있는 소방관은 현장에서 직접 판단해야 한다는 것이다.</p>
+<p>이 세 이유는 각기 다른 위험을 내포한다. 위험 과소평가는 3장에서 다룬 낙관 편향 및 통제 환상과 연결된다. 공격=결과의 믿음은 상관관계와 인과관계를 혼동하는 오류다. 그리고 즉흥 판단의 정당성은, 규칙을 위반하는 것을 전문성의 표시로 읽는 문화를 낳는다. 한 인터뷰 대상자는 말했다. "소방에는 '위험이 없으면 아무것도 얻지 못한다', '조금을 구하려면 조금만 위험을 감수하고, 많이 구하려면 많이 감수하라'는 말이 있다." 이 문화 안에서 표준 운영 절차(Standard Operating Procedures, SOP)를 따르지 않는 것 — 이른바 프리랜싱(freelancing) — 은 징계 대상이 아니라 경험의 훈장으로 읽힌다.</p>
+<hr class="section-rule">
+<h2>신뢰가 복종을 결정한다</h2>
+<p class="indent">현장에서 "따르지 않겠다"고 말하는 소방관은 거의 없다. 그러나 실질적인 복종 여부는 명령의 내용보다 명령을 내리는 사람에 달려 있다. Fender 연구팀은 켄터키 주 소방관 68명(유급 53명, 자원봉사 15명)을 대상으로 포커스 그룹을 진행했다.² 질문은 하나였다. 소방관은 언제 현장 지휘관의 명령을 따르는가.</p>
+<p>결과는 명확했다. 복종은 지휘관의 지식, 신뢰성, 전문성에 대한 평가에 달려 있다. 맹목적 복종이 아니라 조건부 신뢰다. 대원들이 지휘관을 따르는 이유는 계급이 높아서가 아니라, 그 사람이 상황을 알고 있다고 믿기 때문이다. 반대로, 지휘관의 능력을 믿지 않거나 그의 판단이 틀렸다고 판단하면, 대원들은 독립적으로 행동한다. 연구 대상자들은 지휘관의 명령을 어기고 독자 행동(freelancing)을 할 의향이 있는지에 대해 솔직하게 답했다. 대부분 "상황에 따라"라고 했다.</p>
+<p>특히 중요한 발견은 요구조자의 특성에 따른 개인 위험 감수의 변화였다. 어린이나 여성이 위험에 처했다고 인식될 때, 소방관들이 감수할 의향이 있는 개인 위험의 수준이 현저히 높아졌다. 이것은 Jung-Chang 연구의 영웅주의 발견과 정확히 일치한다. 구조 대상자의 취약성이 지휘 체계를 우회하는 정서적 트리거가 된다.</p>
+<p>역사적 사례가 이 역학을 선명하게 보여준다. 1949년 미국 몬태나 주 만 걸치(Mann Gulch) 산불에서 13명의 소방관이 숨졌다. 현장 지휘관 닷지(Dodge)는 불이 사방에서 몰려오는 상황에서 '도주 화재(escape fire)' 기법을 즉흥적으로 개발했다. 땅에 직접 불을 질러 주변 연료를 태워 피신처를 만드는 것이었다. 그가 대원들에게 따르라고 했을 때, 아무도 따르지 않았다. 모두가 도망쳤고, 그들은 화염에 잡혔다. 닷지만 살아남았다. 연구자들은 이 참사의 원인을 분석했다. 닷지는 그 팀에 처음 합류한 지휘관이었다. 대원들은 그를 알지 못했다. 신뢰가 없으면 따르지 않는다. 신뢰가 없으면 혁신은 전달되지 않는다.</p>
+<p>복종을 유발하는 지휘관의 속성은 여섯 가지로 정리되었다. 지식(knowledgeable), 신뢰성(trustworthy), 상호 신뢰(mutual trust), 자기 확신(self-confident), 침착함(level-headed), 경청 의지(willing to listen). 이 여섯 속성 중 어느 하나가 결여될 때, 명령은 지시가 아니라 참고 의견이 된다.</p>
+<hr class="section-rule">
+<h2>변화 저항: 전통이 안전을 이긴다</h2>
+<p class="indent">세 번째 문화 요인은 변화 저항이다. Jung-Chang 연구에서 인터뷰 대상자들은 소방 조직이 외부 연구 결과나 새로운 안전 규정을 수용하는 속도가 다른 고위험 직종에 비해 현저히 느리다고 말했다. 이유는 세 가지로 집약되었다. 전통에 대한 집착, 소통 실패, 변화에 대한 정치적 불신이다.</p>
+<p>"소방에는 오래된 전통이 있고, 그것은 개발이나 발전에 의해 쉽게 흔들리지 않는다." 이 말은 자긍심의 표현이기도 하지만, 동시에 조직의 나르시시즘을 드러낸다. 우리는 이미 잘 하고 있다는 믿음이, 바꿔야 한다는 증거를 차단한다. 새로운 안전 지침이 나와도, 그것이 현장 경험 없는 연구자들의 책상머리 이론으로 읽히면, 현장에서는 조용히 무시된다.</p>
+<p>소통 실패는 양방향이다. 위에서 내리는 정책 변경이 왜 필요한지 충분히 설명되지 않으면, 대원들은 그것을 신뢰하지 않는다. 그리고 현장에서 무엇이 위험한지의 정보가 위로 올라가지 않으면, 조직은 자신이 안전하다고 착각한다. 인터뷰 대상자 중 한 명은 말했다. "간부들이 변화를 제안할 때, 그게 무엇인지, 왜 하는지, 어떤 영향이 있는지를 충분히 소통하지 않으면, 아래에서는 받아들이지 않는다."</p>
+<hr class="section-rule">
+<h2>안전문화는 측정 가능한가</h2>
+<p class="indent">영웅주의와 공격적 전술, 변화 저항이 현장 판단을 왜곡한다면, 이 문화적 문제를 어떻게 다룰 것인가. Davis 연구팀은 이 질문에 측정 도구로 답했다.³</p>
+<p>미국 소방관 안전 조직문화 조사(Fire Service Organizational Culture of Safety, FOCUS)는 FEMA의 지원으로 드렉셀 대학교 연구팀이 개발한 설문 도구다. 417개 소방서 35,256명을 대상으로 한 연구에서 두 가지 핵심 차원이 확인되었다. 경영진 헌신(Management Commitment)과 감독자 지원(Supervisor Support)이다. 각 차원은 7개 문항, 100점 척도로 측정된다.</p>
+<p>이 두 차원이 측정하는 것은 단순한 규정 준수가 아니다. 조직의 안전 기후(Safety Climate), 즉 '우리 조직에서 안전이 실제로 얼마나 중요하게 다뤄지는가'에 대한 구성원들의 인식이다. 연구는 FOCUS 점수가 부상 발생률, 번아웃, 직무 만족도, 그리고 안전 행동과 유의미하게 연관된다는 것을 확인했다. 안전 기후 점수가 낮은 소방서에서 부상률과 번아웃이 높았고, 높은 소방서에서 직무 만족도와 참여도가 높았다.</p>
+<p>가장 중요한 발견은 이 연관의 방향성이다. FOCUS 점수는 부상이 발생하기 전에 조직의 위험을 예측한다. 부상률은 사후 지표(lagging indicator)다. 이미 사고가 났다는 것을 알려준다. 반면 FOCUS 점수는 사전 지표(leading indicator)다. 번아웃이 높아지고, 직무 만족도가 낮아지고, 참여도가 떨어지는 것이 부상보다 먼저 나타난다. 조직이 이 신호를 읽으면, 사고가 나기 전에 개입할 수 있다.</p>
+<p>연구팀이 확인한 유일하게 효과가 입증된 개입은 사후 검토(After-Action Review, AAR)였다. 출동 단위에서 정기적으로 실시하는 AAR이 회사 수준의 안전 기후를 유의미하게 개선했다. 대규모 훈련 프로그램이나 정책 변경보다, 팀이 함께 그 출동을 돌아보는 짧은 검토가 더 효과적이었다. 연구팀이 시범 운영한 안전문화 교육(Culture Camp)에서는 참가자의 사전 이해도 51%가 사후 82%로 높아졌다.</p>
+<hr class="section-rule">
+<h2>해설</h2>
+<p class="indent">세 연구는 서로 다른 층위에서 같은 문제를 설명한다. Jung-Chang은 조직 문화 수준에서 판단 왜곡의 구조를 드러낸다. 영웅주의는 결정의 기준을 바꾸고, 공격적 전술은 규칙 위반을 정당화하며, 변화 저항은 학습을 차단한다. Fender는 그 문화가 현장에서 실시간으로 작동하는 방식을 보여준다. 지휘관에 대한 신뢰 여부가 명령의 이행 여부를 결정한다. 그 신뢰는 계급이 아니라 관계와 역량에서 온다. Davis는 이 문화적 문제를 측정 가능한 것으로 만들고, 개입 가능한 지점을 제시한다.</p>
+<p>국내 소방 환경에서 이 세 층위는 특수한 방식으로 결합된다. 위계 구조가 강한 조직에서 '신뢰'는 계급과 혼동될 수 있다. 경험이 많은 간부의 판단에 이의를 제기하는 것은, 단순한 의견 불일치가 아니라 위계 도전으로 읽힌다. 이 구조 안에서는 만 걸치의 역학이 반대 방향으로 작동할 수 있다. 신뢰가 없어서 따르지 않는 것이 아니라, 신뢰를 표시하기 위해 잘못된 명령도 따른다. 4장에서 Hagemann이 보고한 인터뷰 사례 — "지휘관의 명령에 반기를 들고 싶지 않아서" 안전 기준 없이 진입했다는 것 — 가 이 역학을 보여준다.</p>
+<p>영웅주의의 함정은 그것이 나쁜 동기에서 비롯되지 않는다는 데 있다. 아이를 구하고 싶은 마음, 동료와 함께 들어가고 싶은 마음, 지휘관의 판단을 존중하고 싶은 마음. 이것들은 모두 소방관의 직업 윤리 안에 있다. 문제는 그 윤리가 과도하게 활성화될 때 판단의 균형을 무너뜨린다는 것이다. 개인의 결정 능력이 아니라 조직 문화가 그 균형을 어느 쪽으로 기울이느냐를 결정한다.</p>
+<p>Davis의 FOCUS 도구는 국내 적용 가능성이 있다. 경영진 헌신과 감독자 지원이라는 두 차원은 어떤 조직에서도 측정 가능한 개념이다. 그러나 도입 자체보다 중요한 것은 결과를 어떻게 다루느냐다. FOCUS 점수가 낮다고 나왔을 때, 그것이 개선의 출발점이 되려면 Jung-Chang이 지적한 변화 저항을 돌파해야 한다. AAR이 유일하게 효과적인 개입으로 확인된 이유는, 그것이 외부에서 부과되는 것이 아니라 팀이 스스로 수행하는 과정이기 때문이다. 위에서 내려오는 안전 규정이 아니라, 그 출동에 있었던 사람들이 함께 돌아보는 것. Fender가 말하는 신뢰 기반 조직의 작동 방식이 바로 이것이다.</p>
+<hr class="section-rule">
+<h2>소결</h2>
+<ul>
+<li>영웅주의는 소방관의 헌신을 가능하게 하는 동시에 판단을 왜곡한다. 특히 어린이·취약자 구조 상황에서 영웅적 행동 충동이 지휘 체계를 우회한다.</li>
+<li>공격적 전술은 현장의 필요에서 나오지만, 위험 과소평가·결과 오귀인·즉흥 규범화라는 세 경로를 통해 무모함을 정당화하는 문화적 기제가 된다.</li>
+<li>복종은 명령이 아니라 신뢰에서 나온다. 지휘관의 지식·신뢰성·상호 신뢰·침착함이 대원의 실질적 이행 여부를 결정한다. 계급과 신뢰는 동일하지 않다.</li>
+<li>변화 저항은 전통에 대한 집착, 소통 실패, 정치적 불신이 결합된 구조적 문제다. 이 저항을 돌파하려면 하향식 지시가 아니라 현장 단위의 과정 검토가 유효하다.</li>
+<li>안전 기후는 측정 가능하며, 부상보다 먼저 나타나는 사전 신호를 담고 있다. 출동 단위의 사후 검토(AAR)가 현재로서는 안전 기후를 개선하는 유일하게 검증된 개입이다.</li>
+<li>8장에서는 이 문화 안에서 특히 위험한 방향으로 반응하는 성격 유형 — 위험을 즐기는 사람들 — 을 들여다본다.</li>
+</ul>
+<hr class="section-rule">
+<h2 class="footnotes-header">미주</h2>
+<p>¹ Jung, H., & Chang, W. (2020). Organizational cultural factors associated with firefighter risk-taking in the United States. <em>International Journal of Occupational Safety and Ergonomics, 28</em>(2), 1025–1034. https://doi.org/10.1080/10803548.2020.1851540</p>
+<p>² Fender, K. J. (2003). Risk taking in the fire service: A study of personal risk preferences among firefighters. <em>Fire Engineering, 156</em>(9). [Focus group study, University of Louisville / Kentucky Fire Commission]</p>
+<p>³ Davis, A. L., & Taylor, J. A. (2020). Measuring fire service organizational culture of safety: Application of the FOCUS survey. <em>Journal of Occupational and Environmental Medicine, 62</em>(2), 127–133. https://doi.org/10.1097/JOM.0000000000001775</p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>8장. 위험을 즐기는 사람들: 성격과 위험감수</h1>
+<p class="indent">두 명의 대원이 같은 날 채용됐다. 같은 훈련을 받았다. 같은 현장에 배치됐다. 그런데 그들이 현장에서 보이는 행동은 달랐다. 한 명은 규정 이상의 위험을 기꺼이 감수하고, 짜릿함이 있는 쪽으로 끌렸다. 다른 한 명은 같은 상황에서도 멈추고 확인하는 쪽을 선택했다. 같은 교육을 받고, 같은 문화에 노출됐는데 왜 다른가. 그 차이의 일부는 현장 진입 이전에 이미 존재한다. 성격(personality)이다.</p>
+<hr class="section-rule">
+<h2>위험을 즐기는 사람들: 감각 추구 성격</h2>
+<p class="indent">심리학자 Marvin Zuckerman은 1960년대부터 사람들이 왜 다른 수준의 자극을 추구하는지를 연구했다.¹ 그의 정의는 명확하다. "감각 추구는 다양하고 새롭고 복잡하며 강렬한 감각과 경험을 추구하는 특성이며, 그런 경험을 위해 신체적·사회적·법적·재정적 위험을 감수하려는 의지"다. 심리학자 Frank Farley는 이 특성을 가진 사람을 Type T 성격이라 불렀다. T는 'Thrill'의 약자다. Type T 성격은 에너지가 높고, 규칙을 거부하며, 불확실성을 향해 나아간다. Farley는 이들을 "자신과 타인 모두에게 이중으로 위험하다"고 표현했다.</p>
+<p>Stehman 연구는 미국 소방관 512명을 대상으로 이 특성이 현장 위험 태도와 어떻게 연결되는지를 설문으로 측정했다. Type T 경향 질문("무섭게 느껴지는 것을 좋아한다", "규칙을 어겨야 할 때도 새롭고 짜릿한 경험을 좋아한다")에 긍정적으로 응답한 소방관들은, 생명을 구하기 위한 위험 감수(Q.8)에서 58.4%가 '언제나 감수해야 한다'고 답했다. 이는 그렇지 않은 응답자(44.8%)보다 유의미하게 높았다. Type T 경향이 있는 소방관들은 화재 현장에서 더 공격적으로 위험을 수용했다.</p>
+<p>그런데 이 차이는 무엇이 완화하는가. 연구에서 가장 명확하게 위험 감수를 줄인 요인은 연령이었다. 25세 이하 응답자의 다수가 무섭거나 위험한 것을 즐긴다고 답한 반면, 55세 이상에서는 그 비율이 절반에 그쳤다. 현장 지휘관 역할 경험도 비슷한 방향을 가리켰다. 항상 지휘관으로 서는 소방관들이 전체 응답자 중 가장 보수적인 위험 태도를 보였다(82.6%가 위험·흥분 때문에 소방관이 된 것이 아니라고 답했다). 반대로, 지휘관 역할을 맡지 않거나 드물게 맡는 소방관들이 가장 공격적인 위험 태도를 보였다.</p>
+<p>이 발견이 낳는 아이러니가 있다. 위험을 즐기는 성향이 소방 직무에 대한 매력을 만들지만, 그 성향 자체가 현장 위험 결정의 질을 떨어뜨린다. Crawford가 명명한 소방관 사망 의무 증후군(Firefighter Duty to Die Syndrome, FDTDS)은 그 극단에 있다. 소방관이 직업의 본질로서 자신의 죽음을 수용하고, 죽음을 무릅쓴 행동을 직무의 완수로 읽는 것이다. Stehman은 그것이 개인 성향 문제이기도 하지만, 조직이 위험한 행동을 칭찬하고 보상할 때 이 증후군이 강화된다고 지적한다. 결과가 좋으면 방법을 묻지 않는 문화가 FDTDS를 제도화한다.</p>
+<hr class="section-rule">
+<h2>다크 트라이어드: 더 어두운 성격의 작동</h2>
+<p class="indent">성격의 어두운 측면을 다루는 연구가 소방관 집단을 대상으로 이루어졌다. Rosca 연구팀은 루마니아 소방관 1,434명을 대상으로 다크 트라이어드(Dark Triad)와 위험감수의 관계를 분석했다.² 다크 트라이어드는 세 가지 성격 특성의 집합이다. 나르시시즘(narcissism)은 자기중심성과 주목받으려는 욕구다. 마키아벨리즘(Machiavellianism)은 타인을 조종하고 속이려는 성향이다. 사이코패시(psychopathy)는 충동성과 공감 결여다.</p>
+<p>이 세 특성 중 실제 현장 위험감수를 예측한 것은 마키아벨리즘과 사이코패시였다. 나르시시즘은 유의한 예측력을 보이지 않았다. 연구자들은 이것을 나르시시스트가 자아가 위협받을 때만 공격적·위험 행동을 한다는 기존 연구로 설명한다. 표준화된 절차가 지배하는 소방 현장은 나르시시스트의 자아를 위협하는 일이 상대적으로 드물다는 것이다.</p>
+<p>마키아벨리즘과 위험감수 사이에는 세 가지 매개 경로가 확인됐다. 첫째, 마키아벨리즘이 높을수록 이타심(altruism)이 낮고, 이타심이 낮을수록 위험 행동이 높아졌다(β=0.09, p<.001). 타인의 안전과 복지에 대한 관심이 낮은 소방관이 더 무모한 결정을 한다는 것이다. 둘째, 마키아벨리즘은 정직성(honesty)을 낮추고, 낮은 정직성이 위험 행동을 높였다. 규칙을 지키고 사회적 기대에 따르려는 성향이 낮은 것이다. 셋째, 흥미로운 역설이 있었다. 마키아벨리즘은 용기(courage)와 부(-)적 관계를 보였다. 마키아벨리즘 성향이 높은 소방관은 오히려 직무에서 용기 있는 행동을 덜 했다. 연구자들의 해석은 이렇다. 마키아벨리스트는 자신에게 이익이 되지 않는 위험은 회피한다. 타인을 위해 위험을 감수하는 것은 그들의 행동 논리와 맞지 않는다.</p>
+<p>사이코패시의 경우도 비슷한 역설이 나타났다. 사이코패시는 충동성과 스릴 추구와 연결되지만, 직무 내 위험감수에서는 정직성과 용기를 통해 억제되는 경로도 동시에 작동했다. 사이코패시적 성향의 소방관은 즉각적인 보상이 없는 직무 위험에 대해서는 자신의 신체적 온전함을 걸지 않으려 한다. 그들의 위험 추구는 직무보다 사적 영역에서 더 강하게 나타날 수 있다.</p>
+<p>연구팀은 이 결과를 생애사 이론(Life History Theory)의 틀로 설명한다. 불안하고 예측 불가능한 환경에서 성장한 개인은 단기 이득을 추구하고, 충동적이며, 사회 규칙을 무시하는 '빠른 생애 전략'을 발달시킨다. 다크 트라이어드 특성은 이 빠른 전략의 표현이다. 루마니아는 부패 수준이 높고 자원 불평등이 심한 사회로, 소방관들이 다른 국가에 비해 빠른 생애 전략을 더 강하게 발달시켰을 수 있다. 연구 결과를 맥락 없이 다른 사회에 직접 적용하는 것에는 주의가 필요하다.</p>
+<hr class="section-rule">
+<h2>Big Five: 외향성과 개방성이 앞서 달린다</h2>
+<p class="indent">더 넓게 사용되는 성격 모델인 Big Five — 신경증(Neuroticism), 외향성(Extraversion), 개방성(Openness), 친화성(Agreeableness), 성실성(Conscientiousness) — 은 소방관의 위험감수와 어떻게 연결되는가.</p>
+<p>Gillani 연구팀은 파키스탄 라호르와 시알코트 소방관 63명에게 NEO-FFI 성격 검사와 위험감수 태도 설문을 실시했다.³ 소방관들에게서 가장 두드러진 성격 유형은 외향성(Extraversion), 개방성(Openness), 성실성(Conscientiousness)이었다. 그리고 외향성과 개방성이 높은 소방관일수록 위험감수 태도가 높았다. 외향적인 사람은 자극을 적극적으로 찾고, 개방적인 사람은 새로운 경험을 향해 나아간다. 두 특성 모두 위험 앞에서 멈추기보다 움직이게 만든다.</p>
+<p>경험과 위험감수의 관계도 확인됐다. 신규 입직자나 경험이 적은 소방관이 경험 많은 소방관보다 위험감수 태도가 유의미하게 높았다(F=9.302, p=.05). 이것은 2장에서 확인한 경험 효과와 일치한다. 경험은 위험에 대한 판단을 더 정교하게 만든다. 젊고 경험이 적을수록 자신이 얼마나 위험한지를 과소평가하는 경향이 있다.</p>
+<p>지역 차이도 흥미로운 발견이었다. 라호르 소방관이 시알코트 소방관보다 위험감수 태도가 유의미하게 높았다(t=2.72, p=.04). 라호르는 대도시이고 시알코트는 중소 도시다. 도시 규모와 출동 빈도, 그리고 그에 따라 형성되는 조직 문화가 성격 발현에 영향을 줄 수 있다. 성격은 고정된 것이지만, 그 성격이 어느 정도로 행동에 반영되는지는 조직 환경이 결정한다.</p>
+<p>연구의 표본이 63명으로 작고, 파키스탄이라는 특수한 맥락이 있어 일반화에는 한계가 있다. 그러나 이 연구의 가치는 서구가 아닌 문화권에서 동일한 성격-위험감수 관계를 확인했다는 데 있다. 외향성·개방성과 위험감수의 연결은 문화를 가로질러 나타나는 패턴이다.</p>
+<hr class="section-rule">
+<h2>해설</h2>
+<p class="indent">세 연구는 서로 다른 성격 이론에서 출발해 같은 방향을 가리킨다. 어떤 성격 특성이 있는 소방관들은 구조적으로 더 위험한 결정을 내린다. 그리고 그것은 의지나 훈련의 부족이 아니라, 자극과 위험을 다르게 처리하는 신경심리학적 특성에서 나온다.</p>
+<p>그런데 여기서 불편한 질문을 피해 갈 수 없다. 위험을 즐기는 성격을 가진 사람들이 소방서에 끌린다. 그들이 없으면 소방서는 제 기능을 하지 못한다. 생명을 구하기 위해 불 속으로 들어가는 행동 자체가 어느 정도의 스릴 추구, 자기효능감, 위험 앞에서의 무뎌짐을 필요로 한다. Stehman의 연구에서 소방관들은 소방 직무에서의 위험-이득 비율을 가장 높게 평가했다(이득 83점, 100점 만점). 그들은 위험을 모르는 것이 아니라, 위험 대비 이득이 충분하다고 보는 것이다.</p>
+<p>문제는 그 판단이 언제 과도해지느냐다. 세 연구가 공통으로 가리키는 위험 지점은 두 곳이다. 첫째, 경험이 쌓이기 전 신참 시기다. 이 시기에는 외향성·개방성이 높고, Type T 경향이 있으며, 통제 소재가 외재적인 소방관들이 가장 무모한 결정을 한다. 둘째, 이타심과 정직성이 낮은 경우다. 타인의 안위보다 자신의 목적이 우선되는 소방관은, 정작 그 목적이 임무 달성이 아닐 때도 위험을 선택한다.</p>
+<p>Rosca 연구의 실천적 제언은 두 가지다. 채용 단계에서 마키아벨리즘과 사이코패시 성향을 심리 검사로 측정하는 것, 그리고 훈련 과정에서 이타심·정직성·용기를 명시적으로 발달시키는 것이다. 이 두 제언은 소방관을 성격 유형으로 분류해 배제하자는 뜻이 아니다. 위험 행동을 유발하는 경로를 알면, 개입 지점을 더 정확하게 찾을 수 있다는 것이다.</p>
+<p>국내 소방 환경에서 이 연구들은 선발 심리 검사의 목적에 대한 질문을 제기한다. 현재 대부분의 소방 선발 심리 검사는 심각한 정신 병리를 거르는 데 초점이 맞춰져 있다. 그러나 위험감수와 연결된 성격 특성들 — Type T, 마키아벨리즘, 외향성의 과도한 발현 — 은 병리가 아니다. 일반 검사에서 문제로 표시되지 않는다. 소방 직무에 특화된 위험 성향 측정이 필요한 이유가 여기에 있다.</p>
+<p>또 하나. 성격은 바뀌지 않지만, 성격이 행동으로 나타나는 방식은 달라질 수 있다. Stehman의 연구에서 IC 경험이 쌓인 소방관들이 더 보수적으로 변한 이유는, 성격이 바뀐 것이 아니라 위험의 결과를 직접 책임지는 경험이 쌓였기 때문이다. 7장에서 다룬 신뢰 기반 리더십이 중요한 이유이기도 하다. 위험을 즐기는 소방관이 위험을 관리하는 지휘관으로 성장하는 과정에서, 조직이 그 전환을 어떻게 지원하느냐가 결정적이다.</p>
+<hr class="section-rule">
+<h2>소결</h2>
+<ul>
+<li>Type T 성격(감각 추구)을 가진 소방관은 현장에서 더 공격적인 위험 태도를 보인다. 연령과 현장 지휘관 경험이 이 경향을 완화하며, 위험-이득 분석 정책이 있는 조직에서 약간 더 보수적이다.</li>
+<li>다크 트라이어드 중 마키아벨리즘과 사이코패시가 소방관의 현장 위험감수를 유의하게 예측한다. 나르시시즘은 자아 위협 맥락이 없는 표준화된 직무 상황에서는 위험감수와 연결되지 않는다.</li>
+<li>마키아벨리즘과 위험감수의 관계는 이타심 결여와 정직성 결여를 통해 부분 매개된다. 역설적으로, 마키아벨리즘과 사이코패시는 용기를 낮추는 경로로도 작동한다 — 자신에게 이익이 없는 직무 위험에 대해서는 회피한다.</li>
+<li>외향성과 개방성이 높은 소방관, 특히 신규 입직자나 경험이 적은 소방관에서 위험감수 태도가 높다. 이 패턴은 문화를 가로질러 나타난다.</li>
+<li>성격은 선발 단계와 훈련 단계 모두에서 다뤄질 수 있다. 위험 성향을 소방직에서 배제하는 것이 목표가 아니라, 그것이 현장에서 어떻게 다르게 발현되도록 할 것인지가 핵심이다. 9장에서는 이 개입의 구체적인 방법들을 살펴본다.</li>
+</ul>
+<hr class="section-rule">
+<h2 class="footnotes-header">미주</h2>
+<p>¹ Stehman, P. (2014). <em>Risk taking behaviors and attitudes in the U.S. fire service</em> (Applied Research Project). National Fire Academy, Collinsville Fire Department.</p>
+<p>² Roșca, A. C., Burtăverde, V., Dan, C.-I., Mateizer, A., Petrancu, C. R., Iriza, A. I., & Ene, C. A. (2021). The Dark Triad traits of firefighters and risk-taking at work: The mediating role of altruism, honesty, and courage. <em>International Journal of Environmental Research and Public Health, 18</em>(11), 5983. https://doi.org/10.3390/ijerph18115983</p>
+<p>³ Gillani, Y. R., & Atif, M. (2015). Personality traits and risk taking attitudes among firefighters of rescue service. <em>Journal of Public Administration and Governance, 5</em>(1), 173–183. https://doi.org/10.5296/jpag.v5i1.7377</p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>9장. 더 나은 결정을 위하여: 훈련과 개입</h1>
+<p class="indent">출동에서 돌아온 팀이 차고에 모여 앉는다. 오늘 화재에서 세 가지 결정이 있었다. 진입 시점, 철수 판단, 그리고 팀 분리. 팀장이 묻는다. "진입할 때 우리가 같은 상황인식을 하고 있었나요?" 잠시 침묵이 흐른다. 한 대원이 말한다. "저는 3층에 아직 요구조자가 있다고 생각했는데, 철수 명령이 왜 났는지 이해가 안 됐어요." 팀장이 고개를 끄덕인다. "그래요. 그 정보가 전달이 안 됐어요. 그게 오늘의 핵심입니다." 이것이 훈련이다. 아무도 비난하지 않고, 아무도 영웅이 되지 않는다. 다음에 같은 상황이 오면 달라지게 하는 것만 남는다.</p>
+<hr class="section-rule">
+<h2>소방관은 전술적 운동선수다</h2>
+<p class="indent">스포츠 심리학은 수십 년에 걸쳐 인간이 극한의 수행 조건에서 어떻게 최선의 결정을 내릴 수 있는지를 연구해 왔다. 그 연구들의 공통 전제는 심리적 기술(Psychological Skills)이 훈련 가능하다는 것이다. 집중력, 각성 조절, 자기 대화, 심상화 — 이것들은 타고나는 것이 아니라 연습으로 발달한다.</p>
+<p>Gnacinski 연구팀은 이 전제를 소방관에게 적용했다.¹ 밀워키와 매디슨 소방대 소방관 109명(소방 생도 48명, 신임 48명, 현직 18명)을 대상으로 심리 기술 사용 현황을 처음으로 체계적으로 측정한 연구다. 연구팀은 소방관을 전술적 운동선수(Tactical Athlete)로 개념화한다. 스포츠 선수처럼, 소방관도 극한의 신체적·심리적 조건에서 높은 수행 능력을 발휘해야 하고, 그 수행 능력은 체계적 훈련으로 향상될 수 있다.</p>
+<p>수행 전략 검사(Test of Performance Strategies-2, TOPS-2)로 심리 기술 사용을 측정한 결과, 소방관들은 스포츠 선수와 유사한 패턴을 보였다. 훈련 상황보다 실제 수행 상황에서 심리 기술을 더 많이 사용했다. 기초 기술 중 목표 설정(Goal Setting)이 가장 높은 사용 빈도를 보였고(연습: 3.81, 수행: 3.92), 이완(Relaxation)이 가장 낮았다. 고급 기술 중에서는 감정 조절(Emotional Control)이 특히 수행 상황에서 높은 활용도를 보였다(4.18). 즉, 현장에 나가면 감정을 통제하는 능력이 자동으로 더 많이 요구되고, 소방관들은 이미 그 기술을 사용하고 있다.</p>
+<p>흥미로운 발견은 기초 기술과 고급 기술 사이의 관계다. 스포츠 심리학의 전통적 PST 모델은 기초 기술이 충분히 발달해야 고급 기술로 나아갈 수 있다고 가정한다. 그러나 소방관 집단에서 이 선형적 진행이 일관되게 나타나지 않았다. 이완이나 심상화 같은 기초 기술 점수가 낮아도 감정 조절이나 주의 집중 같은 고급 기술은 높은 경우가 있었다. 연구자들은 이를 소방 현장의 생사가 걸린 특성이 훈련 없이도 고급 심리 기술의 필요성을 강제하기 때문으로 해석한다. 현장이 교사다.</p>
+<p>성격과 심리 기술 사용 사이에서 가장 강한 연결을 보인 특성은 개방성(Openness)과 성실성(Conscientiousness)이었다. 개방성은 16개 가능한 상관 중 11개에서 유의한 연관을 보였고, 성실성은 10개에서 연관을 보였다. 외향성은 단 2개에서만 유의한 상관을 보였다. 이것은 8장의 발견과 연결된다. 위험감수와 연결된 외향성이 정작 심리 기술 개발과는 강하게 연관되지 않는다. 새로운 것을 배우려는 개방성, 그리고 꾸준히 실천하는 성실성이 심리 기술 발달의 토양이다.</p>
+<hr class="section-rule">
+<h2>팀 수준 개입: 디브리핑이 판단의 질을 바꾼다</h2>
+<p class="indent">개인의 심리 기술 훈련이 필요하지만 충분하지 않다. 현장의 결정은 팀 안에서 이루어진다. 소통이 막히면, 지휘가 흔들리면, 팀원들이 서로 다른 상황인식을 가지면 — 어떤 개인의 역량도 이 구조적 문제를 혼자 해결하지 못한다.</p>
+<p>Hagemann 연구팀은 이 팀 수준의 문제를 디브리핑(Debriefing)이 어떻게 완화하는지를 독일 소방관 340명을 대상으로 분석했다.² 연구의 핵심 질문은 두 가지였다. 목표 갈등이 위험 결정과 어떻게 연결되는가, 그리고 디브리핑이 이 연결을 어떻게 약화시키는가.</p>
+<p>첫 번째 질문에 대한 답은 명확했다. 목표 갈등을 더 많이 경험하는 소방관일수록 위험한 결정 패턴을 더 자주 보였다(F=7.60, p<.001). 갈등 상황에서 직감으로 결정하고, 목표 우선순위를 따지지 않고 빠르게 달성 가능한 것을 추구하며, 동료나 요구조자가 위험에 처했을 때 자신의 안전을 희생하는 결정을 내렸다. 이 연결은 4장에서 다룬 목표 갈등 분석의 핵심이다. 이 장에서 중요한 것은 두 번째 질문이다.</p>
+<p>디브리핑이 이 갈등을 줄이는 경로는 세 가지로 확인됐다. 첫째, 디브리핑이 충분할수록 소통 문제가 줄었고, 소통 문제가 줄수록 목표 갈등이 줄었다(완전 매개: β=−0.12, p<.001). 둘째, 지휘 문제를 매개로 한 경로도 유의했다(부분 매개: β=−0.09). 셋째, 공유 정신 모델(Shared Mental Model) 문제를 매개로 한 경로도 확인됐다(완전 매개: β=−0.10). 즉, 디브리핑이 소통, 지휘, 팀원 간 공유 이해 세 가지를 개선했고, 이 개선이 다음 출동의 목표 갈등을 줄였다.</p>
+<p>디브리핑이 효과적이려면 어떤 구조여야 하는가. 연구가 강조하는 것은 기술적 검토가 아닌 팀 과정 검토다. '무슨 일이 있었나'가 아니라 '그때 각자가 무엇을 생각하고 있었나', '그 결정이 왜 내려졌나', '내가 가졌던 상황인식이 동료와 달랐나'를 다루는 것이다. 팀원들이 서로의 관점을 이해하고, 지휘관이 그 출동에서 무엇을 보고 어떤 이유로 결정했는지를 공유하는 것이 목표다. 팀 자기 교정(Team Self-Correction) 과정이 이것이다. 팀이 함께 자신들의 수행을 돌아보고, 공유 정신 모델을 재정렬하며, 다음 출동에서 더 일치된 판단을 내릴 수 있게 된다.</p>
+<hr class="section-rule">
+<h2>개인 수준 개입: 스트레스를 자원으로 재프레이밍하기</h2>
+<p class="indent">팀이 함께 돌아보는 것이 한 축이라면, 개인이 자신의 심리적 반응을 훈련하는 것이 다른 축이다. Hamre의 연구는 이 개인 수준 훈련의 핵심 프레임을 제공한다.³</p>
+<p>출발점은 스트레스 마인드셋(Stress Mindset)이다. 스트레스를 위협(threat)으로 볼 것인가, 도전(challenge)으로 볼 것인가. 이 차이는 인식의 문제가 아니라 생리적 반응의 차이다. 위협 상태에서는 말초혈관 저항이 증가하고 인지 기능이 저하된다. 도전 상태에서는 심박 출량이 늘고 동일한 수준의 각성이 수행 능력을 향상시킨다. 스트레스 자체가 다른 것이 아니라, 몸이 그 스트레스를 처리하는 방식이 달라진다.</p>
+<p>이 마인드셋은 훈련 가능하다. Hamre가 제안하는 심리 기술 훈련(Mental Skills Training, MST)은 세 가지 핵심 기법으로 구성된다.</p>
+<p><strong>호흡 조절(Controlled Breathing).</strong> 호흡은 자율신경계에 직접 접근하는 유일한 방법이다. 연구는 전통적인 전술적 호흡(4-4-4-4 박스 호흡)보다 긴 날숨 방식인 ProlEx(2초 들이쉬기-8초 내쉬기)가 높은 인지 부하 상황에서 더 효과적임을 보여준다. 긴 날숨이 부교감신경계를 더 강하게 활성화하기 때문이다. 실전 환경에서 실행 가능한 단순한 기법이다.</p>
+<p><strong>심상화(Visualization).</strong> 주 3~5회, 회당 15~20분의 정기적 심상화 훈련이 인지적·운동적 수행 모두를 향상시킨다. 단순히 성공 장면을 상상하는 것이 아니라, 도전적 상황을 포함한 시뮬레이션 — 화염이 예상치 못한 방향으로 번지는 상황, 팀원과의 소통이 끊기는 상황 — 을 내적으로 예행연습하는 것이다. Vealey의 스포츠 심리 기술 모델을 소방 맥락에 적용한 이 접근은, 뇌가 실제 경험과 생생한 심상화를 같은 신경 경로를 통해 처리한다는 신경과학적 근거에 기반한다.</p>
+<p><strong>자기 대화(Self-Talk).</strong> 상황을 어떤 언어로 스스로에게 설명하느냐가 판단에 영향을 준다. 연구는 새로운 기술을 습득하거나 낯선 상황을 다룰 때 동기적(motivational) 자기 대화보다 지시적(instructional) 자기 대화가 더 효과적임을 보여준다. "할 수 있다"보다 "지금 무엇을 먼저 확인해야 하는가"가 더 유효하다. 목표는 감정을 억압하는 것이 아니라, 행동을 유도하는 내적 언어를 갖추는 것이다.</p>
+<p>Hamre는 이 세 기법이 소방관의 경력 단계에 따라 다르게 설계돼야 한다고 강조한다. 신임 소방관에게는 스트레스 마인드셋 형성과 기초 호흡 기술이 우선이다. 중견 소방관에게는 심상화와 자기 대화를 현장 시나리오에 통합하는 훈련이 필요하다. 고참에게는 그 기술들을 의식적 노력 없이 자동화하는 훈련과, 자신의 바이어스를 인식하는 메타인지 훈련이 중요하다. 주기화(Periodization) — 스포츠 훈련에서 강도와 종류를 계획적으로 배분하는 원칙 — 를 심리 기술 훈련에 적용하는 것이 이 제안의 핵심이다.</p>
+<hr class="section-rule">
+<h2>해설</h2>
+<p class="indent">세 연구가 가리키는 방향은 하나다. 더 나은 결정은 가르칠 수 있다. 그러나 그것은 지식을 전달하는 방식으로는 가르칠 수 없다. Gnacinski의 연구가 보여주듯, 소방관들은 이미 현장에서 고급 심리 기술을 사용하고 있다. 문제는 그 기술이 비체계적이고, 훈련 상황에서는 충분히 활성화되지 않으며, 어떤 소방관들은 갖추고 어떤 소방관들은 갖추지 못한 채로 현장에 나간다는 것이다.</p>
+<p>세 개입은 서로 다른 층위를 다룬다. Gnacinski는 개인 수준의 심리 기술이 무엇이고 얼마나 사용되는지를 측정하는 기초를 제공한다. Hamre는 그 기술들을 어떻게 체계적으로 훈련할 것인지를 구체화한다. Hagemann은 개인의 기술이 팀 과정 안에서 어떻게 집합적 결정 능력으로 연결되는지를 보여준다. 이 세 층위가 동시에 작동할 때 — 개인이 자신의 스트레스 반응을 훈련하고, 팀이 출동 후 함께 돌아보며, 조직이 이 과정을 정기적으로 지원할 때 — 판단의 질이 달라진다.</p>
+<p>국내 소방 훈련의 현실을 이 기준에서 보면 공백이 명확하다. 체력 훈련, 소방 기술 훈련, 절차 교육은 정기적으로 이루어지지만, 심리 기술 훈련은 거의 체계화되어 있지 않다. 디브리핑은 대형 사고 후 사후 검토 형태로 존재하지만, 일상적 출동 후 팀 과정을 다루는 정기 디브리핑은 드물다. CISM(위기 사건 스트레스 관리)은 사후 심리 지원에 집중되어 있고, 현장 수행을 향상시키는 사전 심리 훈련과는 구분된다.</p>
+<p>이 책 전체가 그려온 그림을 여기에서 하나로 모을 수 있다. 소방관의 잘못된 결정은 무능이나 용기 부족에서 비롯되지 않는다. 인지편향이 작동하고, 목표가 갈등하며, 감정이 처리되지 못하고, 조직문화가 위험을 강화하고, 성격이 특정 방향으로 당긴다. 이 각각의 힘들이 결정을 형성한다. 그리고 그 힘들에 개입할 수 있는 지점들이 존재한다. 팀 디브리핑, 스트레스 마인드셋 훈련, 호흡과 심상화, 그리고 이 모든 것을 지지하는 안전 기후. 더 나은 결정은 운명이 아니다. 훈련의 결과다.</p>
+<hr class="section-rule">
+<h2>소결</h2>
+<ul>
+<li>소방관은 이미 현장에서 심리 기술을 사용하고 있다. 그러나 이 기술의 사용은 비체계적이며, 훈련 상황보다 수행 상황에서 더 많이 활성화된다. 체계적인 심리 기술 훈련(PST) 프로그램이 필요하다.</li>
+<li>기초 기술에서 고급 기술로 나아가는 선형적 진행이 소방관에게는 적용되지 않는다. 생사가 걸린 현장 특성이 고급 심리 기술의 조기 발달을 강제하기 때문이다. PST 프로그램은 이 특성에 맞게 설계되어야 한다.</li>
+<li>디브리핑은 팀의 소통 문제, 지휘 문제, 공유 정신 모델 문제를 감소시키고, 이를 통해 다음 출동의 목표 갈등을 줄인다. 기술 검토가 아닌 팀 과정에 초점을 맞춘 구조화 디브리핑이 핵심이다.</li>
+<li>스트레스 마인드셋 훈련은 같은 스트레스를 위협이 아닌 도전으로 재프레이밍하게 하며, 생리적 반응 자체를 바꾼다. 호흡 조절(ProlEx), 심상화, 지시적 자기 대화가 검증된 기법이다.</li>
+<li>이 개입들은 경력 단계별로 주기화되어야 하고, 개인-팀-조직 세 층위에서 동시에 이루어질 때 가장 효과적이다. 지식 전달이 아니라 반복 훈련과 팀 학습이 판단의 질을 바꾼다. 9개 챕터에 걸쳐 확인한 것들을 하나의 지형도로 모으는 것이 이제 남은 일이다.</li>
+</ul>
+<hr class="section-rule">
+<h2 class="footnotes-header">미주</h2>
+<p>¹ Gnacinski, S. L., Meyer, B. B., Hess, C. W., Cornell, D. J., Mims, J., Zamzow, A., & Ebersole, K. T. (2016). An examination of psychological skills use among firefighters. <em>The Sport Psychologist, 30</em>(2), 136–145. [Issue 9: The Psychology of Firefighting, University of Wisconsin-Milwaukee]</p>
+<p>² Hagemann, V., Heinemann, L., Peifer, C., Aust, F., & Holtz, M. (2022). Risky decision making due to goal conflicts in firefighting—Debriefing as a countermeasure to enhance safety behavior. <em>Safety, 8</em>(2), 21. https://doi.org/10.3390/safety8020021</p>
+<p>³ Hamre, R. M. (2024). <em>Stress as an enhancement: A mindset to improve firefighter performance</em> (Master's thesis). Naval Postgraduate School. https://hdl.handle.net/10945/[handle]</p>
+    </div>
+  </section>
+  <section class="page-section content-section chapter-section">
+    <div class="content-inner chapter-inner">
+<h1>결론</h1>
+<p class="indent">현장 지휘관이 건물 앞에 서 있다. 연기가 3층 창문에서 나오고 있다. 그는 지금 결정을 내린다. 30초가 되기 전에, 아마도 10초 안에, 진입할 것인지 말 것인지, 어느 경로로 접근할 것인지, 대원을 어떻게 배치할 것인지를 정한다. 그 결정은 어디서 오는가.</p>
+<p>이 책이 시작된 질문이다. 9개 챕터를 거쳐 돌아온 지금, 그 질문에 대한 답이 단순하지 않다는 것은 분명하다.</p>
+<hr class="section-rule">
+<h2>이 책이 그린 지형도</h2>
+<p class="indent">결정은 외부에서 온다. 상황이 결정을 불러낸다. 1장과 2장에서 확인한 것처럼, 숙련된 소방관은 상황의 패턴을 인식하고 즉각적으로 행동을 불러낸다. 패턴 인식 결정(RPD)은 극도의 시간 압박 속에서 작동하는 강력한 능력이다. 그러나 가상현실 실험은 경험이 반드시 더 빠르고 직관적인 결정을 만들지 않는다는 것도 보여줬다. 경험은 더 정교한 판단을 가능하게 하지만, 동시에 이미 알고 있다는 착각과 함께 온다.</p>
+<p>그 착각이 3장의 주제였다. 인지편향은 의식의 바깥에서 작동한다. 과신 편향, 통제 환상, 낙관 편향, 몰입 상승. 이 편향들은 경험이 쌓여도 사라지지 않았다. 평균 24년 경력의 지휘관들이 모두 편향을 보였고, 그 방향은 1년이 지나도 일관됐다. 스트레스가 높아질수록 인간은 더 분석적으로 사고하는 것이 아니라, 자신이 이미 기울어진 방향으로 더 강하게 끌렸다.</p>
+<p>그 기울어짐 뒤에는 갈등이 있었다. 4장에서 다룬 목표 갈등 — 살고 싶지만 구해야 한다 — 은 소방 직무에 내재된 구조적 긴장이다. 이 갈등이 강할수록 직감에 의존하고 안전을 희생하는 결정이 늘었다. PPE를 착용하지 않는 것이 무지의 결과가 아니라 정체성, 목표 유혹, 동료 시선이 동시에 작동한 결과라는 것도 확인됐다. 지식만으로는 행동이 바뀌지 않는다.</p>
+<p>감정이 개입한다. 5장에서 감정은 결정의 장애물이 아니라 뇌의 평가 결과라는 것이 확인됐다. 그 감정을 어떻게 처리하느냐 — 억압하느냐, 재평가하느냐, 유연하게 전환하느냐 — 가 판단의 질과 심리 건강 모두에 영향을 줬다. 스트레스를 위협이 아닌 도전으로 인식하는 마인드셋은 생리적 반응 자체를 바꿨다.</p>
+<p>6장은 죽음이었다. 죽음을 더 선명하게 인식하면 더 안전하게 행동할 것이라는 가설은 틀렸다. 죽음 현저성(MS)은 안전 태도를 높였지만 실제 위험 행동은 바꾸지 않았다. 경험이 많은 소방관은 죽음을 상기할 때 더 신중해졌지만, 경험이 적은 소방관은 오히려 더 위험한 선택을 했다. 용감한 소방관이라는 정체성이 공포를 관리하는 방어기제로 작동했기 때문이다.</p>
+<p>7장은 그 정체성의 원천이 어디에 있는지를 보여줬다. 조직이다. 영웅주의 문화는 판단의 기준을 '안전한가'에서 '영웅적인가'로 바꾼다. 지휘관에 대한 신뢰가 명령의 이행 여부를 결정한다. 전통에 대한 집착이 학습을 막는다. 그리고 이 모든 것이 안전 기후라는 측정 가능한 지표로 드러난다.</p>
+<p>8장은 개인차였다. 같은 조직, 같은 훈련 안에서도 어떤 소방관들은 구조적으로 더 위험한 결정을 내린다. Type T 성격, 마키아벨리즘, 사이코패시, 외향성과 개방성의 높은 발현. 그리고 이 특성들이 있는 소방관들이 반드시 나쁜 소방관인 것은 아니다. 위험을 즐기는 성향이 소방 직무에 대한 헌신을 가능하게 하기도 한다. 문제는 그것이 통제되지 않을 때다.</p>
+<p>9장은 개입이었다. 더 나은 결정은 가르칠 수 있다. 팀 디브리핑이 소통과 공유 정신 모델을 개선해 목표 갈등을 줄인다. 호흡 조절, 심상화, 자기 대화가 스트레스 반응을 재구성한다. 소방관을 전술적 운동선수로 보는 시각이 체계적 심리 기술 훈련의 출발점이다.</p>
+<hr class="section-rule">
+<h2>세 가지 통찰</h2>
+<p class="indent">이 여정에서 반복적으로 확인된 통찰이 세 가지 있다.</p>
+<p><strong>첫째, 잘못된 결정은 나쁜 사람에서 오지 않는다.</strong> 경험 많고 헌신적인 소방관이 치명적인 선택을 한다. 그것은 그들이 무능하거나 겁이 없어서가 아니다. 인지편향, 목표 갈등, 감정 처리 방식, 조직문화, 성격 특성이 복합적으로 작용한 결과다. 이 구조를 이해하지 않으면 사고가 났을 때 개인을 책임자로 지목하는 것에서 벗어나기 어렵다. 그리고 그 책임 귀인이 다음 사고를 막지 못한다.</p>
+<p><strong>둘째, 경험은 필요하지만 충분하지 않다.</strong> 경험은 상황을 빠르게 읽는 능력을 키우지만, 동시에 고착된 편향, 과신, 변화 저항을 강화하기도 한다. 경험이 쌓인다는 것이 자동으로 더 안전한 결정을 의미하지 않는다. 경험의 내용이 중요하다. 어떤 출동을 어떻게 돌아봤는지, 팀과 어떤 학습을 공유했는지, 자신의 판단 패턴을 얼마나 의식적으로 점검했는지가 경험의 질을 결정한다.</p>
+<p><strong>셋째, 개입은 가능하다. 단, 지식 전달 방식으로는 불가능하다.</strong> 이 책에서 다룬 거의 모든 문제가 동일한 패턴을 보였다. 소방관들은 알고 있다. PPE를 착용해야 한다는 것을, 무리한 진입이 위험하다는 것을, 감정을 억압하는 것이 좋지 않다는 것을. 알면서 하지 않는다. 아니, 더 정확히는 알지만 그 지식이 현장의 압력 앞에서 행동을 바꾸지 못한다. 지식이 행동을 바꾸려면 반복된 과정 훈련, 스트레스 상태의 연습, 팀 학습, 그리고 그 학습을 지지하는 안전 기후가 함께 필요하다.</p>
+<hr class="section-rule">
+<p class="indent">이 책에 수록된 연구들은 미국, 독일, 루마니아, 파키스탄, 대만에서 이루어졌다. 국내 소방관을 대상으로 한 연구는 포함되지 않았다. 이것은 이 책의 한계이기도 하고, 동시에 남겨진 과제이기도 하다.</p>
+<p>해설에서 반복적으로 짚었듯, 연구들의 핵심 발견은 문화를 가로질러 나타나는 패턴이다. 인지편향은 국적을 가리지 않는다. 목표 갈등은 소방 직무 자체에 내재된 긴장이다. 감정 억압 문화, 영웅주의, 경험 있는 소방관이 더 위험해지는 역설 — 이것들이 한국 소방 현장에서도 작동한다는 것은 어렵지 않게 추측할 수 있다. 아니, 추측이 아니라 현직 소방관이라면 체감하고 있을 것이다.</p>
+<p>그러나 적용의 세부에서는 차이가 있다. 위계 구조의 강도, 자원봉사 소방과 직업 소방의 비율, 디브리핑 문화의 유무, 심리 지원 시스템의 성숙도 — 이것들은 개입의 형태를 다르게 만든다. 이 책을 출발점으로, 국내 소방관을 대상으로 한 연구가 이어지길 기대한다.</p>
+<hr class="section-rule">
+<p class="indent">이 책은 이론서가 아니다. 현직 소방관을 위해 쓰였다. 그 목적에 충실하려면 마지막으로 물어야 할 것이 있다. 이 책을 읽은 소방관이 다음 출동에서 무엇을 다르게 할 수 있는가.</p>
+<p>정답은 없다. 그러나 몇 가지 질문을 가지고 현장에 나가는 것은 가능하다. 지금 내가 내리는 판단이 상황이 아니라 습관에서 오는 것은 아닌가. 팀원들이 지금 이 상황을 나와 같게 보고 있는가. 감정이 지금 내 판단에 어떻게 영향을 주고 있는가. 이 결정을 내리는 압력이 실제 위험 분석에서 오는가, 아니면 동료의 시선이나 조직 문화에서 오는가.</p>
+<p>이 질문들이 머릿속에 있을 때, 잘못된 결정의 확률이 조금 낮아진다. 완전히 없어지지는 않는다. 소방관이 내리는 결정의 조건들 — 시간 압박, 불완전한 정보, 감정, 목표 갈등 — 은 어떤 훈련으로도 완전히 제거되지 않는다. 그러나 그것을 이해하고 있는 소방관과 이해하지 못하는 소방관의 현장은 다르다.</p>
+<p>이 책이 그 이해의 일부가 되기를 바란다.</p>
+    </div>
+  </section>
+  <section class="page-section content-section refs-section">
+    <div class="content-inner refs-inner">
+<h1>참고문헌</h1>
+<p>Bayouth, S. T., Keren, N., Franke, W. D., & Godby, K. (2013). Examining firefighter decision-making: How experience influences speed in process and choice. <em>International Fire Service Journal of Leadership and Management, 7</em>, 51–60.</p>
+<p>Carrigan, S. (2014). <em>Fireground decision-making: A qualitative study</em>. New Hampshire Fire Academy, National Fire Academy Executive Fire Officer Program.</p>
+<p>Davis, A. L., & Taylor, J. A. (2020). Measuring fire service organizational culture of safety: Application of the FOCUS survey. <em>Journal of Occupational and Environmental Medicine, 62</em>(2), 127–133. https://doi.org/10.1097/JOM.0000000000001775</p>
+<p>Evans, J., Sherwood, N., Sookoo, S., & Perry, J. (2019). Emotions and the decision-making process: A literature review in the context of the UK fire service. <em>The International Journal of Emergency Services, 9</em>(1), 6–22. https://doi.org/10.1108/IJES-11-2018-0060</p>
+<p>Fender, K. J. (2003). Risk taking in the fire service: A study of personal risk preferences among firefighters. <em>Fire Engineering, 156</em>(9).</p>
+<p>Gillani, Y. R., & Atif, M. (2015). Personality traits and risk taking attitudes among firefighters of rescue service. <em>Journal of Public Administration and Governance, 5</em>(1), 173–183. https://doi.org/10.5296/jpag.v5i1.7377</p>
+<p>Gnacinski, S. L., Meyer, B. B., Hess, C. W., Cornell, D. J., Mims, J., Zamzow, A., & Ebersole, K. T. (2016). An examination of psychological skills use among firefighters. <em>The Sport Psychologist, 30</em>(2), 136–145.</p>
+<p>Hagemann, V., Heinemann, L., Peifer, C., Aust, F., & Holtz, M. (2022). Risky decision making due to goal conflicts in firefighting—Debriefing as a countermeasure to enhance safety behavior. <em>Safety, 8</em>(2), 21. https://doi.org/10.3390/safety8020021</p>
+<p>Hamre, R. M. (2024). <em>Stress as an enhancement: A mindset to improve firefighter performance</em> (Master's thesis). Naval Postgraduate School. https://hdl.handle.net/10945/[handle]</p>
+<p>Jung, H., & Chang, W. (2020). Organizational cultural factors associated with firefighter risk-taking in the United States. <em>International Journal of Occupational Safety and Ergonomics, 28</em>(2), 1025–1034. https://doi.org/10.1080/10803548.2020.1851540</p>
+<p>Kinsey, M. J., Gwynne, S. M. V., Kuligowski, E. D., & Kinateder, M. (2018). Cognitive biases within decision making during fire evacuations. <em>Fire Technology, 55</em>(1), 2–26. https://doi.org/10.1007/s10694-018-0708-0</p>
+<p>Lhardy, S., Guillet-Descas, E., & Martinent, G. (2025). Development of a scale for measuring cognitive biases related to risk-taking among firefighters: The Five Cognitive Bias Risk Scale (5 CBR-S). <em>Fire, 8</em>(4), 147. https://doi.org/10.3390/fire8040147</p>
+<p>Maglio, M. A., Scott, C., Davis, A. L., Allen, J., & Taylor, J. A. (2016). Situational pressures that influence firefighters' decision making about personal protective equipment: A qualitative analysis. <em>American Journal of Health Behavior, 40</em>(5), 555–567. https://doi.org/10.5993/AJHB.40.5.2</p>
+<p>Martínez, R. M., Goh, K. K., Fan, Y. T., Chen, Y. C., Pan, T. H., Chang, C. M., Yang, C. T., Chang, T. T., & Chen, C. (2025). Mortality salience enhances safety attitudes without reducing risk-taking in junior firefighters. <em>Preprint</em>. https://doi.org/10.21203/rs.3.rs-7296428/v1</p>
+<p>Roșca, A. C., Burtăverde, V., Dan, C.-I., Mateizer, A., Petrancu, C. R., Iriza, A. I., & Ene, C. A. (2021). The Dark Triad traits of firefighters and risk-taking at work: The mediating role of altruism, honesty, and courage. <em>International Journal of Environmental Research and Public Health, 18</em>(11), 5983. https://doi.org/10.3390/ijerph18115983</p>
+<p>Sallis, G., Catherwood, D., Edgar, G. K., Baker, S., & Brookes, D. (2022). Situation awareness and habitual or resting bias in high-pressure fire-incident training command decisions. <em>Fire Safety Journal, 128</em>, 103539. https://doi.org/10.1016/j.firesaf.2022.103539</p>
+<p>Stehman, P. (2014). <em>Firefighter risk-taking behaviors and attitudes: A survey of the United States fire service</em>. National Fire Academy Executive Fire Officer Program Applied Research Project.</p>
+    </div>
+  </section>
+  <section class="page-section colophon-section">
+<div class="page-wrap">
+
+    <div class="book-title">소방관 위험 의사결정의 심리학</div>
+
+    <div class="divider"></div>
+
+    <table class="colophon-table">
+      <tr>
+        <td class="key">전자책 발행</td>
+        <td class="val">2026년 4월 20일</td>
+      </tr>
+      <tr>
+        <td class="key">편저자</td>
+        <td class="val">조재용</td>
+      </tr>
+      <tr>
+        <td class="key">펴낸이</td>
+        <td class="val">조재용</td>
+      </tr>
+      <tr>
+        <td class="key">펴낸곳</td>
+        <td class="val">개인출판</td>
+      </tr>
+      <tr>
+        <td class="key">출판등록</td>
+        <td class="val">해당 없음</td>
+      </tr>
+      <tr>
+        <td class="key">주소</td>
+        <td class="val">대한민국 세종특별자치시</td>
+      </tr>
+      <tr>
+        <td class="key">전화</td>
+        <td class="val">010-2782-5397</td>
+      </tr>
+      <tr>
+        <td class="key">팩스</td>
+        <td class="val">0504-150-5397</td>
+      </tr>
+      <tr>
+        <td class="key">이메일</td>
+        <td class="val">cephas1@naver.com</td>
+      </tr>
+      <tr>
+        <td class="key">편집·디자인</td>
+        <td class="val">조재용</td>
+      </tr>
+      <tr>
+        <td class="key">전자책 ISBN</td>
+        <td class="val">미부여</td>
+      </tr>
+      <tr>
+        <td class="key">정가</td>
+        <td class="val">비매품</td>
+      </tr>
+    </table>
+
+    <div class="copyright">
+      <strong>© 2026 조재용.</strong> 이 책의 내용 일부 또는 전부를 재사용하려면
+      저작권자의 동의를 얻어야 합니다.<br>
+      이 전자책은 내부 교육 목적으로 제작되었으며 판매를 목적으로 하지 않습니다.
+    </div>
+
+  </div>
+  </section>
+
+</body>
+</html>
